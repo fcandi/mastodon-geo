@@ -650,5 +650,17 @@
   "video.mute": "Couper le son",
   "video.pause": "Pause",
   "video.play": "Lecture",
-  "video.unmute": "Rétablir le son"
+  "video.unmute": "Rétablir le son",
+  "geo.map": "Carte",
+  "geo.new_place": "Nouveau lieu",
+  "geo.new_coord": "Neue Coord",
+  "geo.new_data": "Title and Type",
+  "geo.cancel": "Annulation",
+  "geo.coord": "confirmer le lieu",
+  "geo.place_type.choose": "welcher Platztyp?",
+  "geo.place_type.free": "Kostenloser Stellplatz",
+  "geo.place_type.air": "Stellplatz mit Gebühr",
+  "geo.place_type.wild": "Freier Platz",
+  "geo.place_type.camp": "Campingplatz",
+  "geo.wait": "Bitte warten..."
 }

@@ -650,5 +650,20 @@
   "video.mute": "Stummschalten",
   "video.pause": "Pausieren",
   "video.play": "Abspielen",
-  "video.unmute": "Ton einschalten"
+  "video.unmute": "Ton einschalten",
+  "geo.map": "Karte",
+  "geo.new_place": "Neuen Platz hinzufügen",
+  "geo.new_coord": "Koordinaten bestätigen",
+  "geo.new_data": "Angaben zum Platz",
+  "geo.cancel": "Abbrechen",
+  "geo.coord": "Ort bestaetigen",
+  "geo.place_type.choose": "welcher Platztyp?",
+  "geo.place_type.free": "Kostenloser Stellplatz",
+  "geo.place_type.air": "Stellplatz mit Gebühr",
+  "geo.place_type.wild": "Freier Platz",
+  "geo.place_type.camp": "Campingplatz",
+  "geo.place_create": "Speichern",
+  "geo.place.post_descr": "Vielen dank, dein neuer Eintrag wurde gespeichert. Poste jetzt eine Beschreibung, am besten mit Foto :)",
+  "geo.place.post": "Beitrag schreiben",
+  "geo.wait": "Bitte warten..."
 }

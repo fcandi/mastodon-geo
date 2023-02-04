@@ -75,6 +75,7 @@
     "js-yaml": "^4.1.0",
     "jsdom": "^20.0.3",
     "lodash": "^4.17.21",
+    "maplibre-gl": "^2.4.0",
     "mark-loader": "^0.1.6",
     "marky": "^1.2.5",
     "mini-css-extract-plugin": "^1.6.2",
@@ -171,5 +172,9 @@
   "optionalDependencies": {
     "bufferutil": "^4.0.7",
     "utf-8-validate": "^5.0.10"
-  }
+  },
+  "volta": {
+    "node": "16.19.0"
+  },
+  "packageManager": "yarn@1.22.19"
 }

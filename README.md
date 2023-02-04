@@ -24,6 +24,12 @@ Click below to **learn more** in a video:
 
 [youtube_demo]: https://www.youtube.com/watch?v=IPSbNdBmWKE
 
+## Geo-Fork
+
+> Attention!!!
+>
+> This is a fork to show places on a map and discuss them on Mastodon. Its work in progress and NOT YET READY FOR PRODUCTION!
+
 ## Navigation
 
 - [Project homepage 🐘](https://joinmastodon.org)

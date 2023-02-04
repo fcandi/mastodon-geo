@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_06_114142) do
+ActiveRecord::Schema.define(version: 2023_01_15_080421) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -694,6 +694,24 @@ ActiveRecord::Schema.define(version: 2022_12_06_114142) do
     t.index ["database", "captured_at"], name: "index_pghero_space_stats_on_database_and_captured_at"
   end
 
+  create_table "places", force: :cascade do |t|
+    t.string "placetype"
+    t.string "placename"
+    t.jsonb "geodata"
+    t.decimal "lat", precision: 10, scale: 6
+    t.decimal "lng", precision: 10, scale: 6
+    t.integer "display"
+    t.bigint "account_id"
+    t.bigint "status_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["account_id"], name: "index_places_on_account_id"
+    t.index ["display"], name: "index_places_on_display"
+    t.index ["lng", "lat"], name: "index_places_on_lng_and_lat"
+    t.index ["placetype"], name: "index_places_on_placetype"
+    t.index ["status_id"], name: "index_places_on_status_id"
+  end
+
   create_table "poll_votes", force: :cascade do |t|
     t.bigint "account_id"
     t.bigint "poll_id"
@@ -1190,6 +1208,8 @@ ActiveRecord::Schema.define(version: 2022_12_06_114142) do
   add_foreign_key "oauth_access_tokens", "users", column: "resource_owner_id", name: "fk_e84df68546", on_delete: :cascade
   add_foreign_key "oauth_applications", "users", column: "owner_id", name: "fk_b0988c7c0a", on_delete: :cascade
   add_foreign_key "one_time_keys", "devices", on_delete: :cascade
+  add_foreign_key "places", "accounts"
+  add_foreign_key "places", "statuses"
   add_foreign_key "poll_votes", "accounts", on_delete: :cascade
   add_foreign_key "poll_votes", "polls", on_delete: :cascade
   add_foreign_key "polls", "accounts", on_delete: :cascade

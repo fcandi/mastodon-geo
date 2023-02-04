@@ -4,6 +4,7 @@ require 'sidekiq_unique_jobs/web'
 require 'sidekiq-scheduler/web'
 
 Rails.application.routes.draw do
+
   # Paths of routes on the web app that to not require to be indexed or
   # have alternative format representations requiring separate controllers
   web_app_paths = %w(
@@ -28,6 +29,7 @@ Rails.application.routes.draw do
     /domain_blocks
     /mutes
     /statuses/(*any)
+    /geo/(*any)
   ).freeze
 
   root 'home#index'
@@ -664,6 +666,15 @@ Rails.application.routes.draw do
           end
         end
       end
+
+      resources :places, only: [:update, :create, :show, :destroy] do
+        member do
+          post :favorite
+        end
+        collection do
+          get :json_all
+        end
+      end
     end
 
     namespace :v2 do
@@ -685,6 +696,8 @@ Rails.application.routes.draw do
       namespace :admin do
         resources :accounts, only: [:index]
       end
+
+
     end
 
     namespace :web do

@@ -53,6 +53,7 @@ import {
   FollowRecommendations,
   About,
   PrivacyPolicy,
+  Geo
 } from './util/async-components';
 import initialState, { me, owner, singleUserMode, showTrends } from '../../initial_state';
 import { closeOnboarding, INTRODUCTION_VERSION } from 'mastodon/actions/onboarding';
@@ -218,6 +219,7 @@ class SwitchingColumnsArea extends React.PureComponent {
           <WrappedRoute path='/domain_blocks' component={DomainBlocks} content={children} />
           <WrappedRoute path='/mutes' component={Mutes} content={children} />
           <WrappedRoute path='/lists' component={Lists} content={children} />
+          <WrappedRoute path={['/geo/p/:place_id','/geo/:command','/geo']} component={Geo} content={children} />
 
           <Route component={BundleColumnError} />
         </WrappedSwitch>
