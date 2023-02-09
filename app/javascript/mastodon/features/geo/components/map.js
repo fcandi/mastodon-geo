@@ -2,16 +2,19 @@ import React, { useCallback, useRef, useEffect, useState } from 'react';
 import maplibregl from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import { MapSettings } from '../config';
+import ReactDOM from 'react-dom';
 
 export const MapView = (props) => {
-  const { showMarker, setMarkerCoords, startCoords, mapSource } = props;
+  const { showMarker, setMarkerCoords, mapCommand,
+    mapSource, allowBackClick, backClick, showPopup,reloadSource } = props;
   const mapContainer = useRef(null);
   const [map, setMap] = useState(null);
   const [mapLoaded, setMapLoaded] = useState(null);
   const [mapStyle, setMapStyle] = useState(0);
-  const [coords, setCoords] = useState(startCoords);
-  const [zoom] = useState(14);
+  const [coords, setCoords] = useState(mapCommand.goToCoordinates);
+  const [zoom] = useState(mapCommand.goToZoom);
   const [marker, setMarker] =  useState(false);
+  const [popup, setPopup] =  useState(false);
 
   const mapSymbols = ['free', 'air', 'wild', 'camp'];
 
@@ -139,11 +142,12 @@ export const MapView = (props) => {
     if (mapLoaded) {
       map.addControl(new maplibregl.NavigationControl({
         showCompass: false }), 'top-right');
-
-      map.on('moveend', onMoveEnd);
       map.addControl(geoControl);
       loadSymbols();
       addLayer();
+      map.on('moveend', onMoveEnd);
+      map.on('click', onMapClick);
+      doMapCommand();
     }
   }, [mapLoaded]);
 
@@ -154,10 +158,11 @@ export const MapView = (props) => {
         { 'color': '#ff6f00',
           'draggable': true,
         });
+      let { lng, lat }  = map.getCenter();
       newMarker
-        .setLngLat(coords)
+        .setLngLat([lng,lat])
         .addTo(map);
-      setMarkerCoords(coords);
+      setMarkerCoords([lng,lat]);
       setMarker(newMarker);
     } else if (!showMarker&&marker) { // remove marker
       marker.remove();
@@ -174,10 +179,91 @@ export const MapView = (props) => {
     }
   }, [marker]);
 
+  useEffect (() => { // Handle Map COmmand
+    if (!mapLoaded) return;
+    doMapCommand();
+  }, [mapCommand]);
+
+  useEffect (() => { // Handle Map COmmand
+    console.log('RELOAD?')
+    if (reloadSource) {
+      console.log('UND LOS')
+      map.getSource('mapsource').setData( mapSource );
+    }
+  }, [reloadSource]);
+
+
+  useEffect(() => { // popup
+    if (!mapLoaded) return;
+    if (showPopup&&!popup) { // create popup
+      const popupNode = document.createElement('div');
+      ReactDOM.render(
+        <PopUp />,
+        popupNode,
+      );
+      let newPopup = new maplibregl.Popup({
+        closeOnClick: true,
+        anchor: 'bottom',
+        offset: 30,
+      })
+        .setLngLat([showPopup.lng, showPopup.lat])
+        .setDOMContent(popupNode)
+        .addTo(map);
+      setPopup(newPopup);
+    } else if (!showPopup&&popup) { // deletePopup
+      popup.remove();
+      setPopup(false);
+    }
+  }, [showPopup, mapLoaded]);
+
+  const doMapCommand = () => {
+    let flyto=false;
+    const currentZoom = map.getZoom();
+
+    let { lng, lat }  = map.getCenter();
+    let cc = [lng,lat];
+
+    // ZOOM
+    let zoom = mapCommand.goToZoom || mapCommand.goToMinZoom;
+    if (mapCommand.goToMinZoom && currentZoom>zoom) zoom=currentZoom;
+    if (zoom!==currentZoom) flyto=true;
+
+    // COORDS
+    if (mapCommand.goToCoordinates) {
+      cc = mapCommand.goToCoordinates;
+      flyto=true;
+    } else if (mapCommand.showCoordinates) {
+      if (!map.getBounds().contains(mapCommand.showCoordinates)) {
+        cc = mapCommand.showCoordinates;
+        flyto=true;
+      }
+    }
+
+    if (flyto)
+      map.flyTo({
+        center: cc,
+        speed: 3,
+        zoom: zoom || currentZoom,
+        maxDuration: 700,
+      });
+
+
+    if (mapCommand.setMarker&&marker) {
+      marker.setLngLat(mapCommand.setMarker);
+    }
+
+
+  };
+
   function onMoveEnd() {
     if (!map) return;
     let { lng, lat }  = map.getCenter();
     setCoords([lng, lat]);
+
+    // Baustelle: Marker einfangen
+    if (marker && !map.getBounds().contains(marker.getLngLat())) {
+      setMarkerCoords([lng, lat]);
+    }
   }
 
   function onTouchMove() {
@@ -201,9 +287,36 @@ export const MapView = (props) => {
     }
   }
 
+  const backToMap = () =>  {
+    if (allowBackClick)
+      backClick();
+  };
+
+  const PopUp = () =>
+    (<div className={'map-popup'} onClick={()=>props.openPlace(showPopup.id)}>
+      {showPopup.placename}
+    </div>);
+  function onMapClick (e) {
+    let hit = false;
+    let myid=false;
+    var features = map.queryRenderedFeatures(e.point, { layers: ['maplayer1', 'textlayer'] });
+    if (features) {
+      features.forEach(f => {
+        if (myid) return;
+        myid = f.properties.id;
+        if (myid) {
+          hit=true;
+          props.openPlace(myid);
+        }
+      });
+    }
+    if (!hit)
+      backToMap();
+  }
+
   return (
     <div ref={mapContainer} className='map'>
-      {props.children}
+      {mapLoaded && props.children}
     </div>
 
   );

@@ -53,9 +53,9 @@ class Api::V1::PlacesController < Api::BaseController
   # PATCH/PUT /places/1
   def update
     if @place.update(place_params)
-      redirect_to @place, notice: 'Place was successfully updated.'
+      render json:  @place, serializer: REST::PlaceSerializer
     else
-      render :edit
+      unprocessable_entity
     end
   end
 

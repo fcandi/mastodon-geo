@@ -5,11 +5,7 @@ import { injectIntl } from 'react-intl';
 import { connect } from 'react-redux';
 import { GeoIndex } from './geo_index';
 
-const mapStateToProps = state => ({
-  //lists: state.get('lists'),
-});
-
-export default @connect(mapStateToProps)
+export default @connect()
 @injectIntl
 
 class Geo extends ImmutablePureComponent {

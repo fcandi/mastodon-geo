@@ -663,7 +663,8 @@
   "geo.place_type.wild": "Freier Platz",
   "geo.place_type.camp": "Campingplatz",
   "geo.place_create": "Speichern",
-  "geo.place.post_descr": "Vielen dank, dein neuer Eintrag wurde gespeichert. Poste jetzt eine Beschreibung, am besten mit Foto :)",
+  "geo.place.post_descr": "Vielen dank, dein Platz wurde gespeichert. Poste jetzt eine Beschreibung, am besten mit Foto :)",
   "geo.place.post": "Beitrag schreiben",
+  "geo.place.post-new": "Platzbescheibung hinzufügen",
   "geo.wait": "Bitte warten..."
 }

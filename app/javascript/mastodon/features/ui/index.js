@@ -219,7 +219,7 @@ class SwitchingColumnsArea extends React.PureComponent {
           <WrappedRoute path='/domain_blocks' component={DomainBlocks} content={children} />
           <WrappedRoute path='/mutes' component={Mutes} content={children} />
           <WrappedRoute path='/lists' component={Lists} content={children} />
-          <WrappedRoute path={['/geo/p/:place_id','/geo/:command','/geo']} component={Geo} content={children} />
+          <WrappedRoute path={['/geo/p/:popup_place_id','/geo/t/:place_id','/geo/edit/:edit_place_id','/geo/:command','/geo']} component={Geo} content={children} />
 
           <Route component={BundleColumnError} />
         </WrappedSwitch>

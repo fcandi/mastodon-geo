@@ -35,7 +35,7 @@ console.log(intl.formatMessage(messages['free']));
   };
 
   return (
-    <form  key={'wefwef'} className={'place-form'}>
+    <form  key={'wefwef'} className={'map-form'}>
       <div  >
         <FormattedMessage
           key='1'
@@ -134,7 +134,7 @@ console.log(intl.formatMessage(messages['free']));
 
 export const NewPlaceButton = ({onNewButton}) =>
 
-  (<Button className='button' onClick={onNewButton}>
+  (<Button className='geo-button' onClick={onNewButton}>
     <FormattedMessage
       id={'geo.new_place'}
       defaultMessage={'Neuer platz'}
@@ -151,25 +151,20 @@ export const ChooseCoords = ({onCoordButton}) =>
     </Button>
   </>);
 
-export const MyPostButton = ({id, router}) => {
+export const MyPostButton = ({id, router, newPlace,onPostButton }) => {
   const r = "/@Testuser/" + id;
   return (
-    <PostButton id={id} newRoute={r} {...{router}}>
-      <FormattedMessage
-        id={'geo.place.post'}
-        defaultMessage={'Post here'}
-      />
+    <PostButton id={id} newRoute={r} {...{router,onPostButton}}>
+      {newPlace
+        ?  <FormattedMessage
+          id={'geo.place.post-new'}
+          defaultMessage={'New Post here'}
+        />
+        : <FormattedMessage
+          id={'geo.place.post'}
+          defaultMessage={'Post here'}
+        />
+      }
+
     </PostButton>)
 };
-
-export const PostForm = ({place,router}) =>
-  (<>
-    <FormattedMessage
-      id={'geo.place.post_descr'}
-      defaultMessage={'Saved. Please post now:'}
-    />
-    <div className='place-form-field' >
-      <MyPostButton id={place.status_id} {...{router}}/>
-    </div>
-  </>)
-

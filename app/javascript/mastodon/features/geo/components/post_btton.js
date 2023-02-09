@@ -85,8 +85,7 @@ class PlaceStatus extends ImmutablePureComponent {
   handleReplyClick = () => {
     const { signedIn } = this.context.identity;
     if (signedIn){
-      console.log(this.props.newRoute)
-      if (this.props.newRoute) this.context.router.history.push(this.props.newRoute);
+      this.props.onPostButton();
       this.props.onReply(this.props.status, this.context.router.history);
     } else {
       this.props.onInteractionModal('reply', this.props.status);
