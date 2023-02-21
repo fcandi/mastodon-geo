@@ -4,14 +4,10 @@ import ImmutablePureComponent from 'react-immutable-pure-component';
 import { injectIntl } from 'react-intl';
 import { connect } from 'react-redux';
 import ImmutablePropTypes from 'react-immutable-proptypes';
-import { defaultMediaVisibility } from '../../../components/status';
 import { makeGetPictureInPicture, makeGetStatus } from '../../../selectors';
 import { createSelector } from 'reselect';
 import Immutable from 'immutable';
 import StatusContainer from '../../../containers/status_container';
-import classNames from 'classnames';
-import { ScrollContainer } from 'react-router-scroll-4';
-import ScrollableList from '../../../components/scrollable_list';
 
 const makeMapStateToProps = () => {
   const getStatus = makeGetStatus();

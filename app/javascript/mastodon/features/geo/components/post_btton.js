@@ -4,61 +4,12 @@ import { defaultMediaVisibility, textForScreenReader } from '../../../components
 import { makeGetStatus, makeGetPictureInPicture } from '../../../selectors';
 import {
   replyCompose,
-  mentionCompose,
-  directCompose,
 } from '../../../actions/compose';
-import {
-  reblog,
-  favourite,
-  bookmark,
-  unreblog,
-  unfavourite,
-  unbookmark,
-  pin,
-  unpin,
-} from '../../../actions/interactions';
-import {
-  muteStatus,
-  unmuteStatus,
-  deleteStatus,
-  hideStatus,
-  revealStatus,
-  toggleStatusCollapse,
-  editStatus,
-  translateStatus,
-  undoStatusTranslation,
-} from '../../../actions/statuses';
-import {
-  unmuteAccount,
-  unblockAccount,
-} from '../../../actions/accounts';
-import {
-  blockDomain,
-  unblockDomain,
-} from '../../../actions/domain_blocks';
-import {
-  initAddFilter,
-} from '../../../actions/filters';
-import { initMuteModal } from '../../../actions/mutes';
-import { initBlockModal } from '../../../actions/blocks';
-import { initBoostModal } from '../../../actions/boosts';
-import { initReport } from '../../../actions/reports';
-import { openModal } from '../../../actions/modal';
-import { deployPictureInPicture } from '../../../actions/picture_in_picture';
 import { defineMessages, injectIntl, FormattedMessage } from 'react-intl';
-import { boostModal, deleteModal } from '../../../initial_state';
-import { showAlertForError } from '../../../actions/alerts';
 import ImmutablePureComponent from 'react-immutable-pure-component';
 import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
-import StatusActionBar from '../../../components/status_action_bar';
 import Button from '../../../components/button';
-
-const messages = defineMessages({
-  edited: { id: 'status.edited', defaultMessage: 'Edited {date}' },
-  postNew: { id: 'geo.place.postnew', defaultMessage: 'Next: Post' },
-  post: { id: 'geo.place.post', defaultMessage: 'Post here' },
-});
 
 // ausgehölter Status
 

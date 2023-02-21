@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom';
 
 export const MapView = (props) => {
   const { showMarker, setMarkerCoords, mapCommand,
-    mapSource, allowBackClick, backClick, showPopup,reloadSource } = props;
+    mapSource, allowBackClick, backClick, showPopup, reloadSource } = props;
   const mapContainer = useRef(null);
   const [map, setMap] = useState(null);
   const [mapLoaded, setMapLoaded] = useState(null);
@@ -152,6 +152,7 @@ export const MapView = (props) => {
   }, [mapLoaded]);
 
   useEffect(() => { // Handle Forms/Steps, but only after Map loaded
+    console.log('MARKER');
     if (!mapLoaded) return;
     if (showMarker&&!marker) { // create marker
       let newMarker = new maplibregl.Marker(
@@ -159,10 +160,10 @@ export const MapView = (props) => {
           'draggable': true,
         });
       let { lng, lat }  = map.getCenter();
+
       newMarker
-        .setLngLat([lng,lat])
+        .setLngLat(props.initMarker || [lng, lat])
         .addTo(map);
-      setMarkerCoords([lng,lat]);
       setMarker(newMarker);
     } else if (!showMarker&&marker) { // remove marker
       marker.remove();
@@ -185,9 +186,9 @@ export const MapView = (props) => {
   }, [mapCommand]);
 
   useEffect (() => { // Handle Map COmmand
-    console.log('RELOAD?')
+    console.log('RELOAD?');
     if (reloadSource) {
-      console.log('UND LOS')
+      console.log('UND LOS');
       map.getSource('mapsource').setData( mapSource );
     }
   }, [reloadSource]);
@@ -221,7 +222,7 @@ export const MapView = (props) => {
     const currentZoom = map.getZoom();
 
     let { lng, lat }  = map.getCenter();
-    let cc = [lng,lat];
+    let cc = [lng, lat];
 
     // ZOOM
     let zoom = mapCommand.goToZoom || mapCommand.goToMinZoom;
@@ -249,7 +250,7 @@ export const MapView = (props) => {
 
 
     if (mapCommand.setMarker&&marker) {
-      marker.setLngLat(mapCommand.setMarker);
+      //marker.setLngLat(mapCommand.setMarker);
     }
 
 

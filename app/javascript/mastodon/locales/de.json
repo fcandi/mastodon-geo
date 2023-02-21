@@ -666,5 +666,7 @@
   "geo.place.post_descr": "Vielen dank, dein Platz wurde gespeichert. Poste jetzt eine Beschreibung, am besten mit Foto :)",
   "geo.place.post": "Beitrag schreiben",
   "geo.place.post-new": "Platzbescheibung hinzufügen",
-  "geo.wait": "Bitte warten..."
+  "geo.wait": "Bitte warten...",
+  "geo.visited": "Besucht",
+  "geo.favorite": "Favorit"
 }

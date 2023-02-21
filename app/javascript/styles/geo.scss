@@ -2,6 +2,14 @@
 
   .geo-button {
     z-index: 20;
+    margin: 8px;
+  }
+
+  .geo-button-center {
+    z-index: 20;
+    margin: auto;
+    margin-top: 60px;
+    display:block;
   }
 
 .map-wrap {
@@ -112,5 +120,23 @@
 
 place-status-list {
   position: relative;
+}
+
+.place-button-list {
 
 }
+
+.place-icon {
+   padding-right: 5px;
+}
+.place-button {
+  border: 0;
+  border-radius: 5%;
+  background: $ui-secondary-color;
+  padding: 9px;
+  margin: 4px;
+}
+  .place-button-active {
+    background: $ui-highlight-color;
+    color: $secondary-text-color;
+  }

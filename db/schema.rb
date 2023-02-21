@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_01_15_080421) do
+ActiveRecord::Schema.define(version: 2023_02_10_093829) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -694,6 +694,27 @@ ActiveRecord::Schema.define(version: 2023_01_15_080421) do
     t.index ["database", "captured_at"], name: "index_pghero_space_stats_on_database_and_captured_at"
   end
 
+  create_table "place_favs", force: :cascade do |t|
+    t.bigint "account_id", null: false
+    t.bigint "place_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["account_id", "place_id"], name: "index_place_favs_on_account_id_and_place_id", unique: true
+    t.index ["account_id"], name: "index_place_favs_on_account_id"
+    t.index ["place_id"], name: "index_place_favs_on_place_id"
+  end
+
+  create_table "place_visits", force: :cascade do |t|
+    t.integer "rating"
+    t.bigint "account_id", null: false
+    t.bigint "place_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["account_id", "place_id"], name: "index_place_visits_on_account_id_and_place_id", unique: true
+    t.index ["account_id"], name: "index_place_visits_on_account_id"
+    t.index ["place_id"], name: "index_place_visits_on_place_id"
+  end
+
   create_table "places", force: :cascade do |t|
     t.string "placetype"
     t.string "placename"
@@ -1208,6 +1229,10 @@ ActiveRecord::Schema.define(version: 2023_01_15_080421) do
   add_foreign_key "oauth_access_tokens", "users", column: "resource_owner_id", name: "fk_e84df68546", on_delete: :cascade
   add_foreign_key "oauth_applications", "users", column: "owner_id", name: "fk_b0988c7c0a", on_delete: :cascade
   add_foreign_key "one_time_keys", "devices", on_delete: :cascade
+  add_foreign_key "place_favs", "accounts"
+  add_foreign_key "place_favs", "places"
+  add_foreign_key "place_visits", "accounts"
+  add_foreign_key "place_visits", "places"
   add_foreign_key "places", "accounts"
   add_foreign_key "places", "statuses"
   add_foreign_key "poll_votes", "accounts", on_delete: :cascade

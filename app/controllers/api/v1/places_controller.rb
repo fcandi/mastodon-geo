@@ -3,11 +3,11 @@ require 'oj'
 class Api::V1::PlacesController < Api::BaseController
 
   include Authorization
+  before_action :require_user!, except:  [:show, :json_all]
+  before_action :set_place, except: [ :json_all, :index, :create]
+  before_action :create_right, only: [:new]
+  before_action :update_right, only: [:new, :update, :destroy]
 
-  #before_action -> { authorize_if_got_token! :read }, except: [:create, :update, :destroy]
-  #before_action -> { doorkeeper_authorize! :write  }, only:   [:create, :update, :destroy]
-  before_action :require_user!, except:  [:show, :context, :json_all]
-  before_action :set_place, only: [:show, :edit, :update, :destroy]
 
   # GET /places
   def index
@@ -65,6 +65,22 @@ class Api::V1::PlacesController < Api::BaseController
     #redirect_to places_url, notice: 'Place was successfully destroyed.'
   end
 
+  def add_fav
+    @place.add_fav! current_user&.account
+  end
+
+  def remove_fav
+    @place.remove_fav! current_user&.account
+  end
+
+  def add_visit
+    @place.add_visit! current_user&.account
+  end
+
+  def remove_visit
+    @place.remove_visit! current_user&.account
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_place
@@ -98,5 +114,16 @@ class Api::V1::PlacesController < Api::BaseController
         }
       }
     end
+  end
+
+  private
+
+  def create_right
+    @account=current_user&.account
+    raise(ActiveRecord::RecordNotFound) if !@account.local? || @account.suspended? || @account.user_pending?
+  end
+
+  def update_right
+    raise(ActiveRecord::RecordNotFound) if !@place.update_right? current_user
   end
 end

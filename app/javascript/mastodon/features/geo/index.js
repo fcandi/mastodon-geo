@@ -29,6 +29,7 @@ class Geo extends ImmutablePureComponent {
     return (
       <GeoIndex
         router={this.context.router}
+        identity={this.context.identity}
         {...this.props}
       />
     );

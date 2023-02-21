@@ -24,7 +24,7 @@ const EmptyPlace = {
 };
 export const GeoIndex = (props) => {
 
-  const { multiColumn, intl, router, dispatch, params } = props;
+  const { multiColumn, intl, router, dispatch, params, identity } = props;
   const [saving, setSaving] =  useState(false);
   const [loading, isLoading] =  useState(false);
   const [isError, setIsError] =  useState(false);
@@ -57,10 +57,10 @@ export const GeoIndex = (props) => {
         if (command=='edit')
           setNewPlace(response.data);
         if (command==='edit')
-        setMapCommand({
-          goToCoordinates: [response.data.lng, response.data.lat ] ,
-          goToZoom: 16,
-        });
+          setMapCommand({
+            goToCoordinates: [response.data.lng, response.data.lat ],
+            goToZoom: 16,
+          });
         dispatch(fetchStatus(response.data.status_id));
         setSaving(false);
       }).catch(error => {
@@ -75,14 +75,12 @@ export const GeoIndex = (props) => {
 
   // Watcher for Rourtes
   useEffect(() => {
-    if (command=== 'edit') {
-      if (!step) {
-        setStep('coordinates');
-        setNewPlace(place);
-      }
+    if (command=== 'edit'&&!step) {
+      setStep('coordinates');
+      setNewPlace(place);
       setMapCommand({
-        goToCoordinates: [newPlace.lng, newPlace.lat ],
-        setMarker: [newPlace.lng, newPlace.lat ],
+        goToCoordinates: [place.lng, place.lat ],
+        //setMarker: [place.lng, place.lat ],
         goToMinZoom: 15,
         timestamp: Date.now(),
         force: true,
@@ -91,7 +89,7 @@ export const GeoIndex = (props) => {
 
     if (command==='new') {
       if (!step)
-        setStep('coordinates')
+        setStep('coordinates');
     }
 
     if (!command||command==='place')
@@ -146,7 +144,7 @@ export const GeoIndex = (props) => {
       }).catch(error => {
         setSaving(false);
         setIsError (error);
-      })
+      });
     }
   };
 
@@ -161,14 +159,27 @@ export const GeoIndex = (props) => {
 
   function onCoordButton () {
     setStep('data');
-    console.log("NEWPLACE",newPlace)
-    setMapCommand({
-      goToCoordinates: [newPlace.lng, newPlace.lat ],
-    });
+    console.log('NEWPLACE', newPlace);
+
   }
 
   function onPostButton () {
     setPlaceCreated(false);
+    if (place && !place.visit) {
+      api().post(`/api/v1/places/${place.id}/add_visit`,
+      ).then( response => {
+        setPlace((prevalue) => {
+          return {
+            ...prevalue,
+            visit: true,
+          };
+        });
+      })
+        .catch(error => {
+        console.log(error);
+      });
+    }
+
   }
 
   const openPlace = (id) => {
@@ -191,7 +202,7 @@ export const GeoIndex = (props) => {
     });
   };
   const setMarkerCoords  = (coords) => {
-    console.log('new marker coords',coords)
+    console.log('new marker coords', coords);
     setNewPlace((prevalue) => {
       return {
         ...prevalue,
@@ -230,6 +241,7 @@ export const GeoIndex = (props) => {
       <div className='map-wrap'>
         <MapView
           showMarker={step === 'coordinates'}
+          initMarker={(step === 'coordinates' && command === 'edit') ? [newPlace.lng, newPlace.lat] : false}
           showPopup={(command==='popup'&&place)&&place}
           allowBackClick={!step}
           {...{ setMarkerCoords, mapSource, openPlace, backClick, command,
@@ -250,7 +262,7 @@ export const GeoIndex = (props) => {
             /> }
           {command==='place'&&
             <Place
-              {...{ onPostButton, intl, place, router, placeCreated }}
+              {...{ onPostButton, intl, place, router, placeCreated, identity }}
             /> }
         </MapView>
       </div>

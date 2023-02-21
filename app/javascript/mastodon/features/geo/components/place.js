@@ -1,22 +1,17 @@
 import React from 'react';
-import { placeOptions } from '../config';
 import { defineMessages, FormattedMessage } from 'react-intl';
-import PostButton from './post_btton';
 import { MyPostButton } from './place_form';
 import StatusThread from './status_thread';
 import LoadingIndicator from '../../../components/loading_indicator';
-import { PlaceType } from './elements';
-import Status_container from '../../../containers/status_container';
-import StatusList from '../../../components/status_list';
-import StatusContainer from '../../../containers/status_container';
-import Status from '../../status';
-import { ScrollContainer } from 'react-router-scroll-4';
-
+import { EditButton, has_update_right, PlaceFav, PlaceType, PlaceVisit, update_right } from './elements';
+import { placeOptions } from '../config';
 
 export const Place = (props) => {
 
+
+
   const {
-    onPostButton, intl, id, place, router, placeCreated
+    onPostButton, intl, id, place, router, placeCreated, identity,
   } = props;
 
   const messages = defineMessages({
@@ -27,6 +22,7 @@ export const Place = (props) => {
     camp: { id: 'geo.place_type.camp', defaultMessage: 'Campsite' },
   });
 
+  const update_right = place && has_update_right(identity, place);
 
   const goBack = () => {
     router.history.push('/geo');
@@ -39,32 +35,28 @@ export const Place = (props) => {
         defaultMessage={'Confirm Location'}
       />
       <div style={{ marginTop: 7 }}>
-        <MyPostButton id={place.status_id} newPlace {...{ router,onPostButton }} />
+        <MyPostButton id={place.status_id} newPlace {...{ router, onPostButton }} />
       </div>
 
     </div>);
 
   const PlaceActions = () =>
-    <div>
-        <button>
-          war hier
-        </button>
-      <button>
-        favority
-      </button>
-      <button onClick={()=>router.history.push('/geo/edit/'+place.id)}>
-        edit
-      </button>
-    </div>
+    (<div className={"place-button-list"}>
+
+      <PlaceVisit {...{ place }} />
+      <PlaceFav {...{ place }} />
+      {update_right&&
+      <EditButton onClick={()=>router.history.push('/geo/edit/'+place.id)}/>}
+    </div>);
   const PlaceBox = ({ postButton }) =>
     (
       <div className={'place-box'}>
         {place.placename}
         <PlaceType {...{ place }} />
-        <PlaceActions/>
+        <PlaceActions />
         {postButton&&
           <div style={{ marginTop: 7 }}>
-            <MyPostButton id={place.status_id} {...{ router,onPostButton }} />
+            <MyPostButton id={place.status_id} {...{ router, onPostButton }} />
           </div>    }
       </div>
     );

@@ -669,7 +669,10 @@ Rails.application.routes.draw do
 
       resources :places, only: [:update, :create, :show, :destroy] do
         member do
-          post :favorite
+          post :add_fav
+          post :remove_fav
+          post :add_visit
+          post :remove_visit
         end
         collection do
           get :json_all

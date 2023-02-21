@@ -20,6 +20,9 @@ class Place < ApplicationRecord
   belongs_to :account, optional: true
   belongs_to :status, dependent: :destroy, optional: true
   after_create :create_bot_post
+  has_many :place_favs
+  has_many :place_visits
+
 
   Ignore_values = ["Metropolitan France"]
   Use_tags = %w(country state region island subregion municipality city locality place)
@@ -56,13 +59,16 @@ class Place < ApplicationRecord
   end
 
   def create_bot_post
+    add_visit! account
+
     bot_status = Status.new
     bot_status.visibility = 0
     bot_status.language = 'en'
     bot_status.local = true
     bot_status.account_id = ENV['GEO_BOT_ACCOUNT']
-    bot_status.text = '#newplace #' + self.placetype + ' by @' + self.account.username + "\r\n" +
-      ENV['GEO_INTERNAL_LINK'] + '/p/' + self.id.to_s + "\r\n\r\n" + get_geo_data
+    bot_status.text = placename + ' #' + placetype + " #newplace by @" + account.username + "\r\n" +
+      ENV['GEO_INTERNAL_LINK'] + '/p/' + id.to_s + "\r\n\r\n" + get_geo_data
+    #bot_status.media_attachments = [f]
     bot_status.save
     service = ProcessHashtagsService.new
     service.call(bot_status)
@@ -72,7 +78,7 @@ class Place < ApplicationRecord
   end
 
   def add_mention
-    unless self.status.mentions.joins(:account).merge(Account.local).active.pluck(:account_id).include? self.account_id
+    unless status.mentions.joins(:account).merge(Account.local).active.pluck(:account_id).include? account_id
       m = Mention.new
       m.status = status
       m.account = account
@@ -82,6 +88,40 @@ class Place < ApplicationRecord
 
   def coordinates
     [lng.to_f,lat.to_f]
+  end
+
+  def has_second_post?
+    place_visits.count>1
+  end
+
+  def update_right? user
+    return false if !user
+    #return true if  user.role.name = "Admin"
+    return true if user.account == account && !has_second_post?
+  end
+
+  def add_fav! account
+    place_favs.new({ account: account} ).save!
+  end
+
+  def remove_fav! account
+    place_favs.where(account: account).delete_all
+  end
+
+  def add_visit! account
+    place_visits.new({ account: account} ).save!
+  end
+
+  def remove_visit! account
+    place_visits.where(account: account).delete_all
+  end
+
+  def visit? user
+    place_visits.where(account: user&.account).count>0
+  end
+
+  def fav? user
+     place_favs.where(account: user&.account).count>0
   end
 
 end

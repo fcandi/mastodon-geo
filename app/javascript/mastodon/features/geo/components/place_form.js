@@ -143,7 +143,7 @@ export const NewPlaceButton = ({onNewButton}) =>
 
 export const ChooseCoords = ({onCoordButton}) =>
   (<>
-    <Button className='button' onClick={onCoordButton}>
+    <Button className='geo-button-center' onClick={onCoordButton}>
       <FormattedMessage
         id={'geo.new_coord'}
         defaultMessage={'Confirm Location'}
