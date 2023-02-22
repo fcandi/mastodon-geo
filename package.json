@@ -1,6 +1,7 @@
 {
-  "name": "@mastodon/mastodon",
+  "name": "@fcandi/mastodon-geo",
   "license": "AGPL-3.0-or-later",
+  "version": "0.1.0",
   "engines": {
     "node": ">=16"
   },
@@ -20,7 +21,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mastodon/mastodon.git"
+    "url": "https://github.com/fcandi/mastodon-geo.git"
   },
   "private": true,
   "dependencies": {
@@ -168,7 +169,7 @@
   },
   "optionalDependencies": {
     "bufferutil": "^4.0.7",
-    "utf-8-validate": "^5.0.10"
+    "utf-8-validate": "^6.0.2"
   },
   "volta": {
     "node": "16.19.0"
