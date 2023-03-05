@@ -11,7 +11,7 @@ module BrandingHelper
   end
 
   def _logo_as_symbol_wordmark
-    content_tag(:svg, tag(:use, href: '#logo-symbol-wordmark'), viewBox: '0 0 261 66', class: 'logo logo--wordmark')
+    content_tag(:svg, tag(:use, href: '#logo-symbol-wordmark'), viewBox: '0 0 297 66', class: 'logo logo--wordmark')
   end
 
   def _logo_as_symbol_icon
@@ -19,7 +19,7 @@ module BrandingHelper
   end
 
   def render_logo
-    image_pack_tag('logo.svg', alt: 'Mastodon', class: 'logo logo--icon')
+    image_pack_tag('logo.svg', alt: 'Geobla', class: 'logo logo--icon')
   end
 
   def render_symbol(version = :icon)
@@ -27,7 +27,7 @@ module BrandingHelper
            when :icon
              'logo-symbol-icon.svg'
            when :wordmark
-             'logo-symbol-wordmark.svg'
+             'geobla-logo.svg'
            end
 
     render(file: Rails.root.join('app', 'javascript', 'images', path)).html_safe # rubocop:disable Rails/OutputSafety

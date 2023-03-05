@@ -5,18 +5,17 @@ import { MapSettings } from '../config';
 import ReactDOM from 'react-dom';
 
 export const MapView = (props) => {
-  const { showMarker, setMarkerCoords, mapCommand,
+  const { showMarker, setMarkerCoords, mapCommand, mapStyle,
     mapSource, allowBackClick, backClick, showPopup, reloadSource } = props;
   const mapContainer = useRef(null);
   const [map, setMap] = useState(null);
   const [mapLoaded, setMapLoaded] = useState(null);
-  const [mapStyle, setMapStyle] = useState(0);
   const [coords, setCoords] = useState(mapCommand.goToCoordinates);
   const [zoom] = useState(mapCommand.goToZoom);
   const [marker, setMarker] =  useState(false);
   const [popup, setPopup] =  useState(false);
 
-  const mapSymbols = ['free', 'air', 'wild', 'camp'];
+  const mapSymbols = ['free', 'air', 'wild', 'camp', 'campg', 'freeg'];
 
   const layerDesign = [
     {
@@ -96,6 +95,30 @@ export const MapView = (props) => {
     },
   };
 
+
+  const textLayerDesignDark = {
+    'id': 'textlayer',
+    'type': 'symbol',
+    'source': 'mapsource',
+    'minzoom': 7,
+    'layout': {
+      'text-field': '{placename}',
+      'text-font': ['Open Sans', 'Arial Unicode MS Bold'],
+      'text-size': {
+        'stops': [
+          [6, 9],
+          [14, 13],
+        ],
+      },
+      'text-offset': [0, 0.1],
+      'text-anchor': 'top',
+      'text-allow-overlap': false,
+    },
+    'paint': {
+      'text-color': '#FFFFFF',
+    },
+  };
+
   const [geoControl] = useState (new maplibregl.GeolocateControl({
     positionOptions: {
       enableHighAccuracy: true,
@@ -118,7 +141,19 @@ export const MapView = (props) => {
   const addLayer = () => {
     map.addSource('mapsource', { type: 'geojson', data: mapSource });
     layerDesign.map(design => map.addLayer(design));
-    map.addLayer(textLayerDesign);
+    map.addLayer(MapSettings.map_styles[mapStyle].dark === true ? textLayerDesignDark : textLayerDesign);
+  };
+
+  const removeLayer = () => {
+    try {
+      map.removeLayer('textlayer');
+      layerDesign.map(design => {
+        map.removeLayer(design.id)
+      });
+      map.removeSource("mapsource");
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => { // init map at mount
@@ -138,6 +173,20 @@ export const MapView = (props) => {
     };
   }, []);
 
+  useEffect(() => { // init map at mount
+    if (mapLoaded) {
+      removeLayer();
+      map.setStyle(`https://api.maptiler.com/maps/${MapSettings.map_styles[mapStyle].map_id}/style.json?key=${MapSettings.map_api_key}`, { diff: true });
+      map.once("idle", () => {
+        addLayer();
+        loadSymbols();
+      });
+
+    }
+  }, [mapStyle]);
+
+
+
   useEffect(() => { // Add Controls after map loaded
     if (mapLoaded) {
       map.addControl(new maplibregl.NavigationControl({
@@ -152,7 +201,6 @@ export const MapView = (props) => {
   }, [mapLoaded]);
 
   useEffect(() => { // Handle Forms/Steps, but only after Map loaded
-    console.log('MARKER');
     if (!mapLoaded) return;
     if (showMarker&&!marker) { // create marker
       let newMarker = new maplibregl.Marker(
@@ -193,6 +241,12 @@ export const MapView = (props) => {
     }
   }, [reloadSource]);
 
+  useEffect (() => { // Handle Map COmmand
+    if (mapLoaded) {
+      console.log('UND NEUE DATE');
+      map.getSource('mapsource').setData( mapSource );
+    }
+  }, [mapSource]);
 
   useEffect(() => { // popup
     if (!mapLoaded) return;
@@ -292,6 +346,8 @@ export const MapView = (props) => {
     if (allowBackClick)
       backClick();
   };
+
+
 
   const PopUp = () =>
     (<div className={'map-popup'} onClick={()=>props.openPlace(showPopup.id)}>

@@ -9,6 +9,11 @@ import { fetchStatus } from '../../actions/statuses';
 import { ChooseCoords, NewPlaceButton, PlaceForm, PostForm } from './components/place_form';
 import { Place } from './components/place';
 import Icon from '../../components/icon';
+import { GeoSettings, map_std_options } from './config';
+import { GeoSelect } from './components/elements';
+import NotSignedInIndicator from '../../components/not_signed_in_indicator';
+import LoadingBarContainer from '../ui/containers/loading_bar_container';
+import LoadingIndicator from '../../components/loading_indicator';
 
 const messages = defineMessages({
   heading: { id: 'geo.map', defaultMessage: 'Map' },
@@ -26,23 +31,31 @@ export const GeoIndex = (props) => {
 
   const { multiColumn, intl, router, dispatch, params, identity } = props;
   const [saving, setSaving] =  useState(false);
-  const [loading, isLoading] =  useState(false);
+  const [isLoading, setIsLoading] =  useState(false);
   const [isError, setIsError] =  useState(false);
   const [place, setPlace] =  useState(false);
+  const [mapStyle, setMapStyle] =  useState(0);
   const [reloadSource, setReloadSource] =  useState(false);
   const [step, setStep] =  useState(false);
   const [placeCreated, setPlaceCreated] =  useState(false);
   const [firstPageView, setFirstPageView] = useState(true);
+  const [mapList, setMapList] = useState(false);
+  const [activeMap, setActiveMap] = useState(false);
   const [mapCommand, setMapCommand] =  useState({
     goToCoordinates: [10, 49 ],
     goToZoom: 3.1,
   });
-  const [mapSource, setMapSource] =  useState('/api/v1/places/json_all');
+  const [mapSource, setMapSource] =  useState('/api/v1/json_all');
   const [newPlace, setNewPlace] = useState(EmptyPlace);
 
-  const command = params.place_id? 'place' : params.popup_place_id? 'popup' : params.edit_place_id? 'edit': params.command;
+  const command = params.place_id? 'place' : params.popup_place_id? 'popup' : params.edit_place_id? 'edit' : params.code? 'move' : params.command;
   const place_id = params.place_id || params.popup_place_id || params.edit_place_id;
 
+  useEffect(() => { // Load Place
+    if (!mapList) setMapList(map_std_options.filter(entry => !entry.logged_in || identity));
+  }, []);
+
+  const mapSelected= activeMap ? mapList.find(e => e.id==activeMap) : false;
 
   useEffect(() => { // Load Place
     if (place_id) {
@@ -163,6 +176,30 @@ export const GeoIndex = (props) => {
 
   }
 
+  const updateMap = (id, direct_input=false) => {
+
+    setActiveMap(id);
+    var sourceid=false;
+    if (direct_input)
+      sourceid=direct_input;
+    else
+      sourceid = (mapList||map_std_options).find(option => option.id == id);
+    console.log(sourceid);
+    /*
+    setMapSource({
+      'type': 'geojson',
+      cluster: false, // Enable clustering
+      clusterRadius: 10, // Radius of each cluster when clustering points
+      clusterMaxZoom: 3,
+      'data': sourceid.url,
+    });*/
+    let newSource =  sourceid.url;
+    if (identity.signedIn && sourceid.logged_in) {
+      newSource = newSource +  identity.accountId
+    }
+    setMapSource(newSource);
+  };
+
   function onPostButton () {
     setPlaceCreated(false);
     if (place && !place.visit) {
@@ -176,8 +213,8 @@ export const GeoIndex = (props) => {
         });
       })
         .catch(error => {
-        console.log(error);
-      });
+          console.log(error);
+        });
     }
 
   }
@@ -219,12 +256,43 @@ export const GeoIndex = (props) => {
       router.history.goBack();
   };
 
+  const switchMapStyle = () => {
+    setMapStyle(mapStyle == 0 ? 1 : 0);
+  };
+
+  const handleActiveMap = (e) => {
+    updateMap(e.target.value);
+  };
+
   const MyBackButton = () =>
     (<button onClick={handleBackButton} className='column-header__back-button'>
       <Icon id='chevron-left' className='column-back-button__icon' fixedWidth />
       <FormattedMessage id='column_back_button.label' defaultMessage='Back' />
     </button>);
 
+
+  // MOVE
+  useEffect(() => {
+    if (command=== 'move') {
+      setIsLoading(true);
+      api().put('/api/v1/geobla_move',
+        {  geoUser: { userdata: { token: params.code } } }
+      ).then(response => {
+        console.log(response.data);
+        if (response.data.success)
+          setIsLoading("success");
+        else
+          setIsLoading("wait");
+      }).catch(error => {
+        console.log(error);
+        setIsLoading('error');
+      });
+    }
+  }, []);
+
+    // ----- END MOVE
+
+  if (command !== 'move')
   return(
     <Column bindToDocument={!multiColumn} label={intl.formatMessage(messages.heading)}>
 
@@ -237,7 +305,6 @@ export const GeoIndex = (props) => {
         </button>)}
         showBackButton={false}
       />
-
       <div className='map-wrap'>
         <MapView
           showMarker={step === 'coordinates'}
@@ -245,13 +312,38 @@ export const GeoIndex = (props) => {
           showPopup={(command==='popup'&&place)&&place}
           allowBackClick={!step}
           {...{ setMarkerCoords, mapSource, openPlace, backClick, command,
-            mapCommand, reloadSource }}
+            mapCommand, reloadSource, mapStyle }}
         >
 
-          {!command&&
-            <NewPlaceButton
-              {...{ onNewButton }}
-            /> }
+          <div className='geo-map-button'>
+            <div className={'map_style'}>
+              <button id='replay' onClick={switchMapStyle} >
+                <Icon id='globe' className='map-button-icon'  />
+              </button>
+            </div>
+          </div>
+
+          {!command &&
+            <div className='geo-button-wrapper'>
+              <NewPlaceButton
+                {...{ onNewButton }}
+              />
+              <div className={'geo-switch-data'}>
+                <GeoSelect
+                  intl={intl}
+                  placeholder={false}
+                  className={'geo-switcher'}
+                  name={'place_type'}
+                  options={mapList}
+                  value={activeMap}
+                  handleChange={handleActiveMap}
+                  icon={false}
+                  isSuccess
+                />
+
+              </div>
+            </div>
+          }
           {step==='coordinates'&&
             <ChooseCoords
               {...{ onCoordButton }}
@@ -265,6 +357,7 @@ export const GeoIndex = (props) => {
               {...{ onPostButton, intl, place, router, placeCreated, identity }}
             /> }
         </MapView>
+
       </div>
 
       <Helmet>
@@ -272,4 +365,36 @@ export const GeoIndex = (props) => {
         <meta name='robots' content='noindex' />
       </Helmet>
     </Column>);
+  else return (
+    <Column bindToDocument={!multiColumn} label={'intl.formatMessage(messages.heading)'}>
+
+      <ColumnHeader
+        title={'Transfer posts'}
+        icon='map' multiColumn={multiColumn}
+        showBackButton={true}
+      />
+      {identity.signedIn ?
+        <div className='empty-column-indicator'>
+          { (isLoading === true) &&
+            <LoadingIndicator />
+          }
+          { (isLoading === 'success') &&
+            <span className='positive-hint'>
+           <FormattedMessage id='geo.map.move_success' defaultMessage='Success, we will move your data' />
+          </span>
+          }
+          { (isLoading === 'wait') &&
+            <span className='positive-hint'>
+           <FormattedMessage id='geo.map.move_done' defaultMessage='Please wait, we are currently moving your data' />
+          </span>
+          }
+          { (isLoading === 'error') &&
+            <span className='positive-hint'>
+           <FormattedMessage id='geo.map.move_error' defaultMessage='There was a problem with your link.' />
+          </span>
+          }
+          </div>
+        : <NotSignedInIndicator/>}
+    </Column>
+  )
 };

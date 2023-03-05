@@ -1586,9 +1586,9 @@ de:
   tags:
     does_not_match_previous_name: entspricht nicht dem vorherigen Namen
   themes:
-    contrast: Mastodon (Hoher Kontrast)
-    default: Mastodon (Dunkel)
-    mastodon-light: Mastodon (Hell)
+    contrast: Hoher Kontrast
+    default: Dunkel
+    mastodon-light: Hell
   time:
     formats:
       default: "%d.%m.%Y %H:%M"

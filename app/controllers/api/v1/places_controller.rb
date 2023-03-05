@@ -3,8 +3,8 @@ require 'oj'
 class Api::V1::PlacesController < Api::BaseController
 
   include Authorization
-  before_action :require_user!, except:  [:show, :json_all]
-  before_action :set_place, except: [ :json_all, :index, :create]
+  before_action :require_user!, except:  [:show, :json_all, :json_user, :json_likes]
+  before_action :set_place, except: [ :json_all, :index, :create, :json_user, :json_likes]
   before_action :create_right, only: [:new]
   before_action :update_right, only: [:new, :update, :destroy]
 
@@ -17,6 +17,16 @@ class Api::V1::PlacesController < Api::BaseController
 
   def json_all
     @places = Place.all
+    render json: Oj.dump(geo_json,{:mode => :strict }), status: :ok
+  end
+
+  def json_user
+    @places = Place.joins(:place_visits).where(place_visits: { account_id:  params['account_id']})
+    render json: Oj.dump(geo_json,{:mode => :strict }), status: :ok
+  end
+
+  def json_likes
+    @places = Place.joins(:place_favs).where(place_favs: { account_id:  params['account_id']})
     render json: Oj.dump(geo_json,{:mode => :strict }), status: :ok
   end
 

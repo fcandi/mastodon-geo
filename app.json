@@ -1,6 +1,6 @@
 {
-  "name": "Mastodon",
-  "description": "A GNU Social-compatible microblogging server",
+  "name": "Geobla",
+  "description": "A GNU Social-compatible microblogging server based on Mastodon",
   "repository": "https://github.com/mastodon/mastodon",
   "logo": "https://github.com/mastodon.png",
   "env": {

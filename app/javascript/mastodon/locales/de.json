@@ -9,7 +9,7 @@
   "about.domain_blocks.suspended.explanation": "Es werden keine Daten von diesem Server verarbeitet, gespeichert oder ausgetauscht, sodass eine Interaktion oder Kommunikation mit Nutzer*innen dieses Servers nicht möglich ist.",
   "about.domain_blocks.suspended.title": "Gesperrt",
   "about.not_available": "Diese Informationen sind auf diesem Server nicht verfügbar.",
-  "about.powered_by": "Ein dezentralisiertes soziales Netzwerk, angetrieben von {mastodon}",
+  "about.powered_by": "Ein soziales Netzwerk für Vanlife & Camping, basierend auf der Software von {mastodon}",
   "about.rules": "Serverregeln",
   "account.account_note_header": "Notiz",
   "account.add_or_remove_from_list": "Hinzufügen oder Entfernen von Listen",
@@ -671,7 +671,16 @@
   "geo.place.post_descr": "Vielen dank, dein Platz wurde gespeichert. Poste jetzt eine Beschreibung, am besten mit Foto :)",
   "geo.place.post": "Beitrag schreiben",
   "geo.place.post-new": "Platzbescheibung hinzufügen",
+  "geo.place.edit": "Bearbeiten",
   "geo.wait": "Bitte warten...",
   "geo.visited": "Besucht",
-  "geo.favorite": "Favorit"
+  "geo.favorite": "Favorit",
+  "geo.based_on":  "basiert auf",
+  "geo.map_all": "Alle Plätze",
+  "geo.map_my":  "Meine Plätze",
+  "geo.map_like": "Favoriten",
+  "geo.map_from": "Plätze von ",
+  "geo.map.move_error": "Der Link ist fehlerhaft. Bitte melde dich bei uns, um Hilfe zu erhalten.",
+  "geo.map.move_success": "Vielen Dank, dass du auf das Neue Geobla umziehst. Wir haben deine Accounts erfolgreich verknüpft und übertragen alle deine Beiträge in den nächsten 1-2h. Schaue einfach später noch einmal nach.",
+  "geo.map.move_done": "Wir haben deinen Auftrag zum Umzug deiner Daten bereits erhalten. Bitte gedulde dich ein wenig. Wenn die Übertragung nach einigen Stunden nicht geklappt hat, melde dich bitte bei uns."
 }

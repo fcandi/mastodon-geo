@@ -3,26 +3,26 @@ $black: #000000;
 $white: #ffffff;
 
 $classic-base-color: #282c37;
-$classic-primary-color: #9baec8;
-$classic-secondary-color: #d9e1e8;
-$classic-highlight-color: #6364ff;
+$classic-primary-color: #ffba80;
+$classic-secondary-color: #f6eae1;
+$classic-highlight-color: #ff7500 ;
 
 // Differences
-$success-green: lighten(#3c754d, 8%);
+$success-green: lighten(#489145, 8%);
 
 $base-overlay-background: $white !default;
 $valid-value-color: $success-green !default;
 
 $ui-base-color: $classic-secondary-color !default;
-$ui-base-lighter-color: #b0c0cf;
-$ui-primary-color: #9bcbed;
+$ui-base-lighter-color: #ffe7d2;
+$ui-primary-color: #ffba80;
 $ui-secondary-color: $classic-base-color !default;
 $ui-highlight-color: $classic-highlight-color !default;
 
 $primary-text-color: $black !default;
 $darker-text-color: $classic-base-color !default;
 $highlight-text-color: darken($ui-highlight-color, 8%) !default;
-$dark-text-color: #444b5d;
+$dark-text-color: #3a3837;
 $action-button-color: #606984;
 
 $inverted-text-color: $black !default;
