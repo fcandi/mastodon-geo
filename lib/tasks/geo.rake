@@ -1,46 +1,91 @@
 namespace :geo do
 
   desc "mein Test"
-  task test: :environment do
-    user = User.first
-    json = JSON.parse(File.read("./tmp/activities.json"))
-    p json['data'].count
-    json['data'][0..5].each do |post|
-      next unless post['type']=='activity'
-      # check double entries status
-      next if Status.where(account: user.account, created_at: DateTime.parse(post['attributes']['time_at'])).count>0
-      # find place, if nio place skip
-      next unless place_data = json['included'].find {|el|  el['type']=='place' && el['id'].to_s == post['attributes']['place_id'].to_s}
-      #p place_data
-      place = create_place(place_data, user.account)
+  task geobla_move: :environment do
+    WorkLimit = 1
+    mytask = GeoUser.where("status < 2").first
+    exit true unless mytask
+    mytask.status=99
+    mytask.save!
+    service = ProcessHashtagsService.new
+    begin
+      user = User.where(account_id: mytask.account_id).first
+      mystart = mytask.userdata['start'] || 0
+      p "START: " + ENV['GEO_OLD_GEOBLA_HOST'] +  '/api/users/' + mytask.userdata['user_id'].to_s + '/activities?page=' + mystart.to_s + '&per_page=' + WorkLimit.to_s + '&lang=' + mytask.userdata['lang']
+      json = JSON.parse(HTTP.get(ENV['GEO_OLD_GEOBLA_HOST'] +  '/api/users/' + mytask.userdata['user_id'].to_s + '/activities?page=' + mystart.to_s + '&per_page=' + WorkLimit.to_s + '&lang=' + mytask.userdata['lang']))
+      json['data'][0..WorkLimit].each do |post|
+        next unless post['type']=='activity'
+        # check double entries status
+        next if Status.where(account: user.account, created_at: DateTime.parse(post['attributes']['created_at'])).count>0
+        # find place, if nio place skip
+        next unless place_data = json['included'].find {|el|  el['type']=='place' && el['id'].to_s == post['attributes']['place_id'].to_s}
+        #p place_data
+        place = create_place(place_data, user.account)
+        if post['attributes']['content']
+          process_text  = post['attributes']['content']['body'] || post['attributes']['content']['report']
+        else
+          process_text  = ' '
+        end
+        last_status = nil
+        first_post = true
+        while process_text.length>0
+          # Check post length
 
-      status = Status.new
-      status.visibility = 0
-      status.language = 'en'
-      status.local = true
-      status.account = user.account
-      if post['attributes']['content']
-        status.text = post['attributes']['content']['body']&.truncate(500)
+          if process_text.length>500
+            cutoff = 500
+            begin
+              cutoff-=1
+            end while process_text[cutoff]!=" " && cutoff>400
+            this_text = process_text[0..cutoff]
+            process_text = process_text[cutoff + 1..]
+            p "THIS TEXTY: " + this_text
+            p "CUTOFF:" + cutoff.to_s
+          else
+            this_text = process_text
+            process_text = ""
+          end
+
+          status = Status.new
+          status.language = mytask.userdata['lang']
+          status.local = true
+          status.account = user.account
+          status.text = this_text
+          status.conversation_id = place.status.conversation_id
+          media_ids = []
+          if first_post
+            status.visibility = 0
+            status.created_at = DateTime.parse(post['attributes']['created_at'])
+            status.in_reply_to_id = place.status.id
+            post["attributes"]["image_urls"][0..3].each do |photo|
+              media_id = create_attachment(user,photo["srcSet"][photo["srcSet"].count-1].split.first)
+              media_ids.push(media_id)
+            end
+
+            first_post = false
+          else
+            status.visibility = 1
+            status.created_at = DateTime.parse(post['attributes']['created_at'])
+            status.in_reply_to_id = last_status.id
+          end
+          status.media_attachments = media_ids
+          status.save
+          last_status = status
+          ## manually call services
+          service.call(status)
+        end
+
+      end
+      if json['data'].count>=WorkLimit
+        mytask.status=1
+        mytask.userdata['start'] = mystart + WorkLimit
       else
-        status.text = ''
+        mytask.status=2
       end
-      status.created_at = DateTime.parse(post['attributes']['time_at'])
-      status.conversation_id = place.status.conversation_id
-      status.in_reply_to_id = place.status.id
-      media_ids = []
-      post["attributes"]["image_urls"][0..3].each do |photo|
-        media_id = create_attachment(user,photo["srcSet"][photo["srcSet"].count-1].split.first)
-        media_ids.push(media_id)
-        puts media_ids
-      end
-
-      status.media_attachments = media_ids
-      status.save
-
-      ## manually call services
-      service = ProcessHashtagsService.new
-      service.call(status)
+    rescue => e
+      mytask.status=9
+      raise e
     end
+    mytask.save!
   end
 
   def create_attachment(user,media_url)

@@ -1,3 +1,5 @@
+require 'http'
+
 class Api::V1::GeoUsersController < Api::BaseController
   include Authorization
 
@@ -25,17 +27,23 @@ class Api::V1::GeoUsersController < Api::BaseController
   end
 
   def geobla_move
-    return unprocessable_entity if GeoUser.where(account_id: current_user&.account_id).count>0
-    @geo_user = GeoUser.new(geo_user_params)
-    @geo_user.account_id = current_user&.account_id
-    p '----------------------------------------------'
-    p @geo_user
-    if @geo_user.check_token!
-      p "GESCHAFFRT"
-      render json: @geo_user
+    if @geo_user = GeoUser.where(account_id: current_user&.account_id).first
+      p "============================================================SCHON DA"
+      ret = { success: false }
     else
-      unprocessable_entity
+      @geo_user = GeoUser.new(geo_user_params) unless @geo_user
+      return unprocessable_entity if !res = @geo_user.check_token!
+      return unprocessable_entity if !res['success']
+      @geo_user.account_id = current_user&.account_id
+      @geo_user.status = 0
+      @geo_user.userdata = {
+        lang: res['lang'],
+        user_id: res['user_id']
+      }
+      return unprocessable_entity unless  @geo_user.save!
+      ret = { success: true }
     end
+    render json: ret
   end
 
   # DELETE
