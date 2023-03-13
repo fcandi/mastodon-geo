@@ -37,6 +37,7 @@ const messages = defineMessages({
   personal: { id: 'navigation_bar.personal', defaultMessage: 'Personal' },
   security: { id: 'navigation_bar.security', defaultMessage: 'Security' },
   menu: { id: 'getting_started.heading', defaultMessage: 'Getting started' },
+  geo: { id: 'geo.map', defaultMessage: 'Map' },
 });
 
 const mapStateToProps = state => ({
@@ -95,7 +96,8 @@ class GettingStarted extends ImmutablePureComponent {
 
     navItems.push(
       <ColumnSubheading key='header-discover' text={intl.formatMessage(messages.discover)} />,
-    );
+      <ColumnLink key='geo' icon='map' text={intl.formatMessage(messages.geo)} to='/geo'  />
+      );
 
     if (showTrends) {
       navItems.push(

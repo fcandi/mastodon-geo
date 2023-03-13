@@ -1,3 +1,4 @@
+const env = process.env.NODE_ENV || 'development';
 
 // Place Types
 export const placeOptions = [
@@ -15,7 +16,7 @@ export const map_std_options = [
 
 // Map Configuration
 export const MapSettings = {
-  map_api_key: 'LW1qWnkfWEsDREq6tal7',
+  map_api_key: env === 'development' ? 'LW1qWnkfWEsDREq6tal7' : 'tctCyWyLAFjiVbIJz6Xn',
   map_api_host: 'https://api.maptiler.com/maps/',
   map_styles:
     [ {
@@ -31,5 +32,5 @@ export const MapSettings = {
 };
 
 export const GeoSettings = {
-  geobla_old_host: 'http://0.0.0.0:3001',
+  geobla_old_host: 'https://api.geobla.com',
 };

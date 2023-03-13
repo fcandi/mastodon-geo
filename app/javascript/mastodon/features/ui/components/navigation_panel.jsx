@@ -52,14 +52,14 @@ class NavigationPanel extends React.Component {
           <hr />
         </div>
 
-        {signedIn && (
+        {signedIn ? (
           <React.Fragment>
             <ColumnLink transparent to='/home' icon='home' text={intl.formatMessage(messages.home)} />
             <ColumnLink transparent to='/geo' icon='map' text={intl.formatMessage(messages.geo)} />
             <ColumnLink transparent to='/notifications' icon={<NotificationsCounterIcon className='column-link__icon' />} text={intl.formatMessage(messages.notifications)} />
             <FollowRequestsColumnLink />
           </React.Fragment>
-        )}
+        ) : <ColumnLink transparent to='/geo' icon='map' text={intl.formatMessage(messages.geo)} /> }
 
         {showTrends ? (
           <ColumnLink transparent to='/explore' icon='hashtag' text={intl.formatMessage(messages.explore)} />

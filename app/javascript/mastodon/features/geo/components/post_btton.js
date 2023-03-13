@@ -1,11 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { defaultMediaVisibility, textForScreenReader } from '../../../components/status';
 import { makeGetStatus, makeGetPictureInPicture } from '../../../selectors';
 import {
   replyCompose,
 } from '../../../actions/compose';
-import { defineMessages, injectIntl, FormattedMessage } from 'react-intl';
+import { injectIntl } from 'react-intl';
 import ImmutablePureComponent from 'react-immutable-pure-component';
 import PropTypes from 'prop-types';
 import ImmutablePropTypes from 'react-immutable-proptypes';
@@ -26,6 +25,7 @@ class PlaceStatus extends ImmutablePureComponent {
     relationship: ImmutablePropTypes.map,
     buttonText: ImmutablePropTypes.map,
     newRoute:  PropTypes.string,
+    onInteractionModal: PropTypes.func,
   };
 
   updateOnProps = [
@@ -41,19 +41,21 @@ class PlaceStatus extends ImmutablePureComponent {
     } else {
       this.props.onInteractionModal('reply', this.props.status);
     }
-  }
+  };
   render () {
-    let { status, account, ...other } = this.props;
+    let { status } = this.props;
     if (status === null) {
       return null;
     }
 
     return (
-        <Button className='button' onClick={this.handleReplyClick}>
-          {this.props.children}
-        </Button>
+      // eslint-disable-next-line react/jsx-filename-extension
+      <Button className='button' onClick={this.handleReplyClick}>
+        {this.props.children}
+      </Button>
     );
   }
+
 }
 
 
@@ -73,9 +75,9 @@ const mapDispatchToProps = (dispatch, { intl, contextType }) => ({
   onReply (status, router) {
     dispatch((_, getState) => {
       let state = getState();
-        dispatch(replyCompose(status, router));
+      dispatch(replyCompose(status, router));
     });
-  }
+  },
 
 });
 

@@ -20,6 +20,7 @@ class Geo extends ImmutablePureComponent {
     dispatch: PropTypes.func.isRequired,
     intl: PropTypes.object.isRequired,
     multiColumn: PropTypes.bool,
+    onInteractionModal: PropTypes.func,
   };
 
   constructor(props) {

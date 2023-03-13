@@ -1697,3 +1697,5 @@ de:
     not_supported: Dieser Browser unterstützt keine Sicherheitsschlüssel
     otp_required: Um Sicherheitsschlüssel zu verwenden, aktiviere zunächst die Zwei-Faktor-Authentisierung (2FA).
     registered_on: Registriert am %{date}
+  geo:
+    visited: Besucht am

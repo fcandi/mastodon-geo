@@ -25,6 +25,8 @@ export const PlaceForm = (props) => {
     air: { id: 'geo.place_type.air', defaultMessage: 'Payed Parking' },
     wild: { id: 'geo.place_type.wild', defaultMessage: 'Wild Spot' },
     camp: { id: 'geo.place_type.camp', defaultMessage: 'Campsite' },
+    placetype:  { id: 'geo.placetype', defaultMessage: 'Type' },
+    placename:  { id: 'geo.placename', defaultMessage: 'Place Name' },
   });
 
 
@@ -45,7 +47,7 @@ console.log(intl.formatMessage(messages['free']));
       </div>
       <div className='place-form-field' >
         <label>
-          Platzname
+          {intl.formatMessage(messages.placename)}
           <input
             key='placeName'
             disabled={saving}
@@ -66,7 +68,7 @@ console.log(intl.formatMessage(messages['free']));
       </div>
       <div className='place-form-field' >
         <label>
-          Type
+          {intl.formatMessage(messages.placetype)}
           <select
             key='placeName'
             className='setting-text'
@@ -141,6 +143,16 @@ export const NewPlaceButton = ({onNewButton}) =>
     />
   </Button>);
 
+export const RegisterForAction = () =>
+  ( <a href={'/auth/sign_up'}>
+    <Button className='geo-button'>
+    <FormattedMessage
+      id={'geo.map.register'}
+      defaultMessage={'Register for map features'}
+    />
+  </Button>
+    </a>
+  );
 export const ChooseCoords = ({onCoordButton}) =>
   (<>
     <Button className='geo-button-center' onClick={onCoordButton}>

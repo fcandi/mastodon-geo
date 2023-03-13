@@ -6,7 +6,7 @@ import React, { useEffect, useState } from 'react';
 import { defineMessages, FormattedMessage } from 'react-intl';
 import api from '../../api';
 import { fetchStatus } from '../../actions/statuses';
-import { ChooseCoords, NewPlaceButton, PlaceForm, PostForm } from './components/place_form';
+import { ChooseCoords, NewPlaceButton, PlaceForm, PostForm, RegisterForAction } from './components/place_form';
 import { Place } from './components/place';
 import Icon from '../../components/icon';
 import { GeoSettings, map_std_options } from './config';
@@ -299,7 +299,7 @@ export const GeoIndex = (props) => {
       <ColumnHeader
         title={intl.formatMessage(messages.heading)}
         icon='map' multiColumn={multiColumn}
-        extraButton={(typeof command !== 'undefined'&&!saving)&&(<button onClick={handleBackButton} className='column-header__back-button'>
+        extraButton={(typeof command !== 'undefined'&&!saving&&!multiColumn)&&(<button onClick={handleBackButton} className='column-header__back-button'>
           <Icon id='chevron-left' className='column-back-button__icon' fixedWidth />
           <FormattedMessage id='column_back_button.label' defaultMessage='Back' />
         </button>)}
@@ -325,23 +325,28 @@ export const GeoIndex = (props) => {
 
           {!command &&
             <div className='geo-button-wrapper'>
-              <NewPlaceButton
-                {...{ onNewButton }}
-              />
-              <div className={'geo-switch-data'}>
-                <GeoSelect
-                  intl={intl}
-                  placeholder={false}
-                  className={'geo-switcher'}
-                  name={'place_type'}
-                  options={mapList}
-                  value={activeMap}
-                  handleChange={handleActiveMap}
-                  icon={false}
-                  isSuccess
-                />
 
-              </div>
+              {identity.signedIn ?
+                <>
+                  <NewPlaceButton
+                    {...{ onNewButton }}
+                  />
+                  <div className={'geo-switch-data'}>
+                    <GeoSelect
+                      intl={intl}
+                      placeholder={false}
+                      className={'geo-switcher'}
+                      name={'place_type'}
+                      options={mapList}
+                      value={activeMap}
+                      handleChange={handleActiveMap}
+                      icon={false}
+                      isSuccess
+                    />
+                  </div>
+                </>
+            :
+              <RegisterForAction/>}
             </div>
           }
           {step==='coordinates'&&

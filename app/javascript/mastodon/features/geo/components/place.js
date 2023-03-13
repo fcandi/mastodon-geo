@@ -1,9 +1,9 @@
 import React from 'react';
 import { defineMessages, FormattedMessage } from 'react-intl';
-import { MyPostButton } from './place_form';
+import { MyPostButton, RegisterForAction } from './place_form';
 import StatusThread from './status_thread';
 import LoadingIndicator from '../../../components/loading_indicator';
-import { EditButton, has_update_right, PlaceFav, PlaceType, PlaceVisit, update_right } from './elements';
+import { EditButton, has_update_right, PlaceFav, PlaceNav, PlaceType, PlaceVisit, update_right } from './elements';
 import { placeOptions } from '../config';
 
 export const Place = (props) => {
@@ -42,11 +42,14 @@ export const Place = (props) => {
 
   const PlaceActions = () =>
     (<div className={"place-button-list"}>
-
-      <PlaceVisit {...{ place }} />
-      <PlaceFav {...{ place }} />
+      {identity.signedIn &&
+        <>
+        <PlaceVisit {...{ place }} />
+        <PlaceFav {...{ place }} />
       {update_right&&
       <EditButton onClick={()=>router.history.push('/geo/edit/'+place.id)}/>}
+      </>}
+      <PlaceNav {...{ place }} />
     </div>);
   const PlaceBox = ({ postButton }) =>
     (
@@ -54,10 +57,10 @@ export const Place = (props) => {
         {place.placename}
         <PlaceType {...{ place }} />
         <PlaceActions />
-        {postButton&&
+        {(postButton&&identity.signedIn) ?
           <div style={{ marginTop: 7 }}>
             <MyPostButton id={place.status_id} {...{ router, onPostButton }} />
-          </div>    }
+          </div> : postButton&&<RegisterForAction /> }
       </div>
     );
 
@@ -69,9 +72,9 @@ export const Place = (props) => {
     <>
 
       <div className={'place-wrap'}>
-        {placeCreated&&
-          <NewBox />}
-        <PlaceBox postButton={!placeCreated} />
+        {placeCreated ?
+          <NewBox /> :
+        <PlaceBox postButton={!placeCreated} /> }
         <StatusThread
           statusId={place.status_id}
         />

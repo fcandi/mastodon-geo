@@ -89,6 +89,28 @@ export const EditButton = ({ onClick }) => {
     </button>);
 };
 
+export const PlaceNav = ({ place }) => {
+  function navCall(lat, lng) {
+    let coord = lat + "," + lng;
+    if /* if we're on iOS, open in Apple Maps */
+    ((navigator.platform.indexOf("iPhone") != -1) ||
+      (navigator.platform.indexOf("iPad") != -1) ||
+      (navigator.platform.indexOf("iPod") != -1))
+      window.open("maps://maps.google.com/maps?daddr=" + coord + "&amp;ll=");
+    else /* else use Google */
+      window.open("https://maps.google.com/maps?daddr=" + coord + "&amp;ll=");
+  }
+
+  return (
+    <button onClick={() => navCall(place.lat, place.lng)} className={'place-button'}>
+      <Icon id='car' className='place-icon' />
+      <FormattedMessage
+        id={'geo.place.nav'}
+        defaultMessage={'Navigieren'}
+      />
+    </button>);
+};
+
 export function create_right(user) {
   if (user) return true;
 }

@@ -66,12 +66,14 @@ class Place < ApplicationRecord
     bot_status.language = 'en'
     bot_status.local = true
     bot_status.account_id = ENV['GEO_BOT_ACCOUNT']
-    bot_status.text = placename + ' #' + placetype + " #newplace by @" + account.username + "\r\n" +
-      ENV['GEO_INTERNAL_LINK'] + '/p/' + id.to_s + "\r\n\r\n" + get_geo_data
+    bot_status.text = ':geo_' + placetype + ': ' + placename + " by @" + account.username + "\r\n\r\n:geo_map: " +
+      ENV['GEO_INTERNAL_LINK'] + '/p/' + id.to_s + "\r\n#newplace #" + placetype + " " + get_geo_data
     #bot_status.media_attachments = [f]
+    bot_status.created_at = created_at if created_at
     bot_status.save
     service = ProcessHashtagsService.new
     service.call(bot_status)
+    Trends.tags.register(bot_status) unless created_at
     self.status = bot_status
     save
     add_mention
@@ -109,7 +111,11 @@ class Place < ApplicationRecord
   end
 
   def add_visit! account
-    place_visits.new({ account: account} ).save!
+    begin
+      place_visits.new({ account: account} ).save!
+    rescue => e
+      p e
+    end
   end
 
   def remove_visit! account
