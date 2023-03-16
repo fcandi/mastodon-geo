@@ -4,7 +4,7 @@ fr:
     about_mastodon_html: 'Le réseau social de l''avenir : pas de publicité, pas de surveillance institutionnelle, conception éthique et décentralisation ! Gardez le contrôle de vos données avec Mastodon !'
     contact_missing: Non défini
     contact_unavailable: Non disponible
-    hosted_on: Serveur Mastodon hébergé sur %{domain}
+    hosted_on: Message de %{domain}
     title: À propos
   accounts:
     follow: Suivre
