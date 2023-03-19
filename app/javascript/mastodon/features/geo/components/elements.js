@@ -116,7 +116,7 @@ export function create_right(user) {
 }
 
 export function has_update_right(identity, place) {
-  //return ( identity.accountId==place.account_id || ((identity.permissions & PERMISSION_MANAGE_REPORTS) === PERMISSION_MANAGE_REPORTS));
+  return ( identity.accountId==place.account_id || ((identity.permissions & PERMISSION_MANAGE_REPORTS) === PERMISSION_MANAGE_REPORTS));
   return ( identity.accountId==place.account_id );
 }
 const messages = defineMessages({

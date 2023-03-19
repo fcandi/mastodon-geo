@@ -2,10 +2,10 @@ const env = process.env.NODE_ENV || 'development';
 
 // Place Types
 export const placeOptions = [
-  { id: 'free', name: 'geo.place_type.free', default: 'Free Parking', icon: 'rv-icon.png', color: '#007FFF', color_background: '#cffcff' },
-  { id: 'air', name: 'geo.place_type.air', default: 'Payed Parking',  icon: 'rv-icon.png', color: '#FFA203', color_background: '#faeba8' },
-  { id: 'wild', name: 'geo.place_type.wild', default: 'Wild Spot',  icon: 'trees-icon.png', color: '#21C901', color_background: '#d6fb7b' },
-  { id: 'camp', name: 'geo.place_type.camp', default: 'Campsite',  icon: 'camp-icon.png', color: '#B500E8', color_background: '#ffdfd5' },
+  { id: 'free', name: 'geo.place_type.free', tag: 'freeSite', default: 'Free Site', icon: 'rv-icon.png', color: '#007FFF', color_background: '#cffcff' },
+  { id: 'paid', name: 'geo.place_type.paid', tag: 'paidSite', default: 'Payed Site',  icon: 'rv-icon.png', color: '#FFA203', color_background: '#faeba8' },
+  { id: 'wild', name: 'geo.place_type.wild', tag: 'wildSite', default: 'Wild Site',  icon: 'trees-icon.png', color: '#21C901', color_background: '#d6fb7b' },
+  { id: 'camp', name: 'geo.place_type.camp', tag: 'Campsite',default: 'Campsite',  icon: 'camp-icon.png', color: '#B500E8', color_background: '#ffdfd5' },
 ];
 
 export const map_std_options = [

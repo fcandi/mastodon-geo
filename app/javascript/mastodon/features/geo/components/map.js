@@ -15,7 +15,7 @@ export const MapView = (props) => {
   const [marker, setMarker] =  useState(false);
   const [popup, setPopup] =  useState(false);
 
-  const mapSymbols = ['free', 'air', 'wild', 'camp', 'campg', 'freeg'];
+  const mapSymbols = ['free', 'paid', 'wild', 'camp', 'campg', 'freeg'];
 
   const layerDesign = [
     {
@@ -38,7 +38,7 @@ export const MapView = (props) => {
         'circle-color': [
           'match',
           ['get', 'placetype'],
-          'air',
+          'paid',
           '#FFA203',
           'camp',
           '#B500E8',
@@ -207,12 +207,14 @@ export const MapView = (props) => {
         { 'color': '#ff6f00',
           'draggable': true,
         });
-      let { lng, lat }  = map.getCenter();
 
+
+      let { lng, lat }  = map.getCenter();
       newMarker
         .setLngLat(props.initMarker || [lng, lat])
         .addTo(map);
       setMarker(newMarker);
+      props.updateNewMarker([lng, lat]);
     } else if (!showMarker&&marker) { // remove marker
       marker.remove();
       setMarker(false);

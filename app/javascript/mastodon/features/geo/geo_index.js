@@ -6,11 +6,18 @@ import React, { useEffect, useState } from 'react';
 import { defineMessages, FormattedMessage } from 'react-intl';
 import api from '../../api';
 import { fetchStatus } from '../../actions/statuses';
-import { ChooseCoords, NewPlaceButton, PlaceForm, PostForm, RegisterForAction } from './components/place_form';
+import {
+  ChooseCoords,
+  DeleteButton,
+  NewPlaceButton,
+  PlaceForm,
+  PostForm,
+  RegisterForAction
+} from './components/place_form';
 import { Place } from './components/place';
 import Icon from '../../components/icon';
 import { GeoSettings, map_std_options } from './config';
-import { GeoSelect } from './components/elements';
+import {GeoSelect, has_update_right} from './components/elements';
 import NotSignedInIndicator from '../../components/not_signed_in_indicator';
 import LoadingBarContainer from '../ui/containers/loading_bar_container';
 import LoadingIndicator from '../../components/loading_indicator';
@@ -18,6 +25,7 @@ import LoadingIndicator from '../../components/loading_indicator';
 const messages = defineMessages({
   heading: { id: 'geo.map', defaultMessage: 'Map' },
   subheading: { id: 'lists.subheading', defaultMessage: 'Your lists' },
+  deleteok: { id: 'confirmations.delete.message', defaultMessage: 'Really delete this place?' },
 });
 
 const EmptyPlace = {
@@ -50,6 +58,7 @@ export const GeoIndex = (props) => {
 
   const command = params.place_id? 'place' : params.popup_place_id? 'popup' : params.edit_place_id? 'edit' : params.code? 'move' : params.command;
   const place_id = params.place_id || params.popup_place_id || params.edit_place_id;
+  const update_right = newPlace && has_update_right(identity, newPlace);
 
   useEffect(() => { // Load Place
     if (!mapList) setMapList(map_std_options.filter(entry => !entry.logged_in || identity));
@@ -173,7 +182,10 @@ export const GeoIndex = (props) => {
   function onCoordButton () {
     setStep('data');
     console.log('NEWPLACE', newPlace);
-
+    if (command!=='edit')
+      setMapCommand({
+        goToCoordinates: [newPlace.lng, newPlace.lat ],
+      });
   }
 
   const updateMap = (id, direct_input=false) => {
@@ -218,6 +230,25 @@ export const GeoIndex = (props) => {
     }
 
   }
+
+  function onDeleteButton () {
+    if (confirm(intl.formatMessage(messages.deleteok))) {
+      setPlaceCreated(false);
+      if (place) {
+        api().delete(`/api/v1/places/${place.id}`,
+        ).then( response => {
+          setPlace(false);
+          setReloadSource(Date.now());
+          router.history.replace('/geo');
+        })
+          .catch(error => {
+            console.log(error);
+            alert(error.message);
+          });
+      }
+    }
+  }
+
 
   const openPlace = (id) => {
     router.history.push('/geo/t/' + id);
@@ -270,6 +301,10 @@ export const GeoIndex = (props) => {
       <FormattedMessage id='column_back_button.label' defaultMessage='Back' />
     </button>);
 
+  // Update Marker with Map position if empty
+  const updateNewMarker = (coords) => {
+      if (!newPlace.lng) setMarkerCoords(coords);
+  };
 
   // MOVE
   useEffect(() => {
@@ -312,7 +347,7 @@ export const GeoIndex = (props) => {
           showPopup={(command==='popup'&&place)&&place}
           allowBackClick={!step}
           {...{ setMarkerCoords, mapSource, openPlace, backClick, command,
-            mapCommand, reloadSource, mapStyle }}
+            mapCommand, reloadSource, mapStyle, updateNewMarker }}
         >
 
           <div className='geo-map-button'>
@@ -350,9 +385,16 @@ export const GeoIndex = (props) => {
             </div>
           }
           {step==='coordinates'&&
+            <>
             <ChooseCoords
               {...{ onCoordButton }}
-            /> }
+            />
+              {update_right &&
+                <DeleteButton
+                  {...{ onDeleteButton }}
+                /> }
+            </>
+          }
           {step==='data'&&
             <PlaceForm
               {...{ onSavePlace, newPlace, onPlaceFormChange, saving, intl, isError }}

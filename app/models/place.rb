@@ -20,12 +20,18 @@ class Place < ApplicationRecord
   belongs_to :account, optional: true
   belongs_to :status, dependent: :destroy, optional: true
   after_create :create_bot_post
-  has_many :place_favs
-  has_many :place_visits
+  has_many :place_favs, dependent: :destroy
+  has_many :place_visits, dependent: :destroy
 
 
   Ignore_values = ["Metropolitan France"]
   Use_tags = %w(country state region island subregion municipality city locality place)
+  Place_tags = {
+    'free' => '#freeSite',
+    'paid' => '#paidSite',
+    'wild' =>  '#wildSite',
+    'camp' =>  "#campsite"
+  }
 
   def get_geo_data
     begin
@@ -67,7 +73,7 @@ class Place < ApplicationRecord
     bot_status.local = true
     bot_status.account_id = ENV['GEO_BOT_ACCOUNT']
     bot_status.text = ':geo_' + placetype + ': ' + placename + " by @" + account.username + "\r\n\r\n:geo_map: " +
-      ENV['GEO_INTERNAL_LINK'] + '/p/' + id.to_s + "\r\n#newplace #" + placetype + " " + get_geo_data
+      ENV['GEO_INTERNAL_LINK'] + '/p/' + id.to_s + "\r\n#newPlace " + Place_tags[placetype] + " " + get_geo_data
     #bot_status.media_attachments = [f]
     bot_status.created_at = created_at if created_at
     bot_status.save

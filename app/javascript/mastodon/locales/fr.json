@@ -1,7 +1,7 @@
 {
   "about.blocks": "Serveurs modérés",
   "about.contact": "Contact :",
-  "about.disclaimer": "Mastodon est un logiciel libre, open-source et une marque déposée de Mastodon gGmbH.",
+  "about.disclaimer": "Geobla fonctionne sur un logiciel open source basé sur Mastodon. Mastodon est une marque de Mastodon gGmbH.",
   "about.domain_blocks.no_reason_available": "Raison non disponible",
   "about.domain_blocks.preamble": "Mastodon vous permet généralement de visualiser le contenu et d'interagir avec les utilisateur⋅rice⋅s de n'importe quel autre serveur dans le fédiverse. Voici les exceptions qui ont été faites sur ce serveur en particulier.",
   "about.domain_blocks.silenced.explanation": "Vous ne verrez généralement pas les profils et le contenu de ce serveur, à moins que vous ne les recherchiez explicitement ou que vous ne choisissiez de les suivre.",
@@ -539,7 +539,7 @@
   "server_banner.about_active_users": "Personnes utilisant ce serveur au cours des 30 derniers jours (Comptes actifs mensuellement)",
   "server_banner.active_users": "comptes actifs",
   "server_banner.administered_by": "Administré par :",
-  "server_banner.introduction": "{domain} fait partie du réseau social décentralisé propulsé par {mastodon}.",
+  "server_banner.introduction": "Réseau social pour Vanlife & Camping basé sur {mastodon}",
   "server_banner.learn_more": "En savoir plus",
   "server_banner.server_stats": "Statistiques du serveur :",
   "sign_in_banner.create_account": "Créer un compte",
@@ -661,10 +661,11 @@
   "geo.new_coord": "Valider les coordonnées",
   "geo.new_data": "Informations sur la place",
   "geo.cancel": "Annuler",
+  "geo.delete": "Supprimer",
   "geo.coord": "Confirmer le lieu",
   "geo.place_type.choose": "quel type d'endroit ?",
   "geo.place_type.free": "Emplacement gratuit",
-  "geo.place_type.air": "Air de camping cars payant",
+  "geo.place_type.paid": "Air de camping cars payant",
   "geo.place_type.wild": "Place sauvage",
   "geo.place_type.camp": "Camping",
   "geo.place_create": "Enregistrer",
@@ -685,6 +686,6 @@
   "geo.map.move_success": "Nous te remercions d'avoir déménagé sur le nouveau Geobla. Nous avons réussi à relier tes comptes et à transférer toutes tes contributions dans les 1 à 2 heures qui suivent. Il suffit de vérifier plus tard.",
   "geo.map.move_done": "Nous avons déjà reçu ta demande de transfert de tes données. Merci de patienter un peu. Si le transfert n'a pas fonctionné après quelques heures, contacte-nous.",
   "geo.map.register": "S'inscrire pour toutes les fonctions",
-  "geo.placename": "Nom du lieu",
-  "geo.placetype": "Type"
+  "geo.map.placename": "Nom du lieu",
+  "geo.map.placetype": "Type"
 }

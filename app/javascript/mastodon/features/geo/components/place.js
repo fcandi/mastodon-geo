@@ -17,7 +17,7 @@ export const Place = (props) => {
   const messages = defineMessages({
     choose: { id: 'geo.place_type.choose', defaultMessage: 'geo.place_type.choose' },
     free: { id: 'geo.place_type.free', defaultMessage: 'Free Parking' },
-    air: { id: 'geo.place_type.air', defaultMessage: 'Payed Parking' },
+    paid: { id: 'geo.place_type.paid', defaultMessage: 'Payed Parking' },
     wild: { id: 'geo.place_type.wild', defaultMessage: 'Wild Spot' },
     camp: { id: 'geo.place_type.camp', defaultMessage: 'Campsite' },
   });

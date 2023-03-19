@@ -1,5 +1,5 @@
 {
-  "name": "Mastodon",
+  "name": "Geobla",
   "dockerComposeFile": "docker-compose.yml",
   "service": "app",
   "workspaceFolder": "/mastodon",

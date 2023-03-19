@@ -1,7 +1,7 @@
 // Commonly used web colors
-$black: #000000; // Black
+$black: #282828; // Black
 $white: #ffffff; // White
-$success-green: #92f201 !default; // Padua
+$success-green: #77c400 !default; // Padua
 $error-red: #da01f2 !default; // Cerise
 $warning-red: #f2da01 !default; // Sunset Orange
 $gold-star: #ff7500 !default; // Dark Goldenrod
@@ -16,7 +16,7 @@ $classic-highlight-color: #ff7500; // Brand purple
 
 // Variables for defaults in UI
 $base-shadow-color: $black !default;
-$base-overlay-background: $black !default;
+$base-overlay-background:  $black !default;
 $base-border-color: $white !default;
 $simple-background-color: $white !default;
 $valid-value-color: $success-green !default;

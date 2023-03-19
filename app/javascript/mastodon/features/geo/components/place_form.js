@@ -22,11 +22,11 @@ export const PlaceForm = (props) => {
   const messages = defineMessages({
     choose: { id: 'geo.place_type.choose', defaultMessage: 'geo.place_type.choose' },
     free: { id: 'geo.place_type.free', defaultMessage: 'Free Parking' },
-    air: { id: 'geo.place_type.air', defaultMessage: 'Payed Parking' },
+    paid: { id: 'geo.place_type.paid', defaultMessage: 'Payed Parking' },
     wild: { id: 'geo.place_type.wild', defaultMessage: 'Wild Spot' },
     camp: { id: 'geo.place_type.camp', defaultMessage: 'Campsite' },
-    placetype:  { id: 'geo.placetype', defaultMessage: 'Type' },
-    placename:  { id: 'geo.placename', defaultMessage: 'Place Name' },
+    placetype:  { id: 'geo.map.placetype', defaultMessage: 'Type' },
+    placename:  { id: 'geo.map.placename', defaultMessage: 'Place Name' },
   });
 
 
@@ -159,6 +159,16 @@ export const ChooseCoords = ({onCoordButton}) =>
       <FormattedMessage
         id={'geo.new_coord'}
         defaultMessage={'Confirm Location'}
+      />
+    </Button>
+  </>);
+
+export const DeleteButton = ({onDeleteButton}) =>
+  (<>
+    <Button type='reset' className='delete-button' onClick={onDeleteButton}>
+      <FormattedMessage
+        id={'geo.delete'}
+        defaultMessage={'Delete'}
       />
     </Button>
   </>);

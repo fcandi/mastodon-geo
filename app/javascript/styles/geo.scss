@@ -16,6 +16,14 @@
     display:block;
   }
 
+  .delete-button {
+    z-index: 20;
+    margin: auto;
+    margin-top: 5px;
+    display:block;
+    background-color: $error-red;
+  }
+
 .map-wrap {
   width: 100%;
   height: calc(100vh - 100px); /* calculate height of the screen minus the heading */
@@ -68,19 +76,19 @@
 
   margin: 5px;
   overflow-y: scroll;
-  background: $ui-base-color;
+  background: $base-overlay-background;
 }
 
 .place-box {
-  background: $ui-base-lighter-color;
+  background: $ui-base-color;
   font-size: 1.5em;
   padding: 15px;
   //width: 100%;
 }
 
 .map-popup {
-  background: $ui-base-lighter-color;
-  color: $ui-base-color;
+  background: $white;
+  color: $black;
   font-size: 1.2em;
   padding: 5px;
 }

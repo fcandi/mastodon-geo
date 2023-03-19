@@ -1,7 +1,7 @@
 ---
 de:
   about:
-    about_mastodon_html: 'Das soziale Netzwerk der Zukunft: Keine Werbung, keine Überwachung, dafür dezentral und mit Anstand! Starte jetzt mit Mastodon!'
+    about_mastodon_html: 'Das soziale Netzwerk für Vanlive & Camping. Ohne Werbung und dezentral vernetzt im Fedivers, 100% kompatibel mit Mastodon. Jetzt starten!'
     contact_missing: Nicht festgelegt
     contact_unavailable: Nicht verfügbar
     hosted_on: Email von %{domain}
@@ -657,7 +657,7 @@ de:
         moderation: Moderation
         special: Spezial
       delete: Löschen
-      description_html: Mit <strong>Benutzer*inn-Rollen</strong> kannst du die Funktionen und Bereiche von Mastodon anpassen, auf die deine Benutzer*innen zugreifen können.
+      description_html: Mit <strong>Benutzer*inn-Rollen</strong> kannst du die Funktionen und Bereiche von Geobla anpassen, auf die deine Benutzer*innen zugreifen können.
       edit: Rolle „%{name}“ bearbeiten
       everyone: Standardberechtigungen
       everyone_full_description_html: Das ist die <strong>Basis-Rolle</strong>, die für <strong>alle Benutzer*innen</strong> gilt – auch für diejenigen ohne zugewiesene Rolle. Alle anderen Rollen erben Berechtigungen davon.
@@ -720,20 +720,20 @@ de:
         rules_hint: Es gibt einen eigenen Bereich für Regeln, die deine Benutzer*innen einhalten müssen.
         title: Über
       appearance:
-        preamble: Die Oberfläche von Mastodon anpassen.
+        preamble: Die Oberfläche von Geobla anpassen.
         title: Design
       branding:
         preamble: Das Branding deines Servers unterscheidet ihn von anderen Servern im Netzwerk. Diese Informationen können in einer Vielzahl von Umgebungen angezeigt werden, z. B. in der Weboberfläche von Mastodon, in nativen Anwendungen, in Linkvorschauen auf anderen Websites und in Messaging-Apps und so weiter. Aus diesem Grund ist es am besten, diese Informationen klar, kurz und prägnant zu halten.
         title: Branding
       content_retention:
-        preamble: Lege fest, wie lange nutzergenerierte Inhalte auf deiner Mastodon-Instanz gespeichert werden.
+        preamble: Lege fest, wie lange nutzergenerierte Inhalte auf Geobla gespeichert werden.
         title: Cache & Archive
       default_noindex:
         desc_html: Betrifft alle Benutzer, die diese Einstellung nicht selbst geändert haben
         title: Benutzer standardmäßig von der Suchmaschinen-Indizierung ausnehmen
       discovery:
         follow_recommendations: Folgeempfehlungen
-        preamble: Das Auffinden interessanter Inhalte ist wichtig, um neue Nutzer einzubinden, die Mastodon noch nicht kennen. Bestimme, wie verschiedene Suchfunktionen auf deinem Server funktionieren.
+        preamble: Das Auffinden interessanter Inhalte ist wichtig, um neue Nutzer einzubinden, die Geobla noch nicht kennen. Bestimme, wie verschiedene Suchfunktionen auf deinem Server funktionieren.
         profile_directory: Profilverzeichnis
         public_timelines: Öffentliche Timeline
         publish_discovered_servers: Veröffentliche bekannte Server
@@ -970,8 +970,8 @@ de:
     delete_account: Konto löschen
     delete_account_html: Falls du dein Konto endgültig löschen möchtest, kannst du das <a href="%{path}">hier vornehmen</a>. Du musst dies zusätzlich bestätigen.
     description:
-      prefix_invited_by_user: "@%{name} lädt dich ein, diesem Server von Mastodon beizutreten!"
-      prefix_sign_up: Registriere dich noch heute bei Mastodon!
+      prefix_invited_by_user: "@%{name} lädt dich ein, Geobla beizutreten!"
+      prefix_sign_up: Registriere dich noch heute bei Geobla!
       suffix: Mit einem Konto kannst du Profilen folgen, neue Beiträge veröffentlichen, Nachrichten mit Personen von jedem Mastodon-Server austauschen und vieles mehr!
     didnt_get_confirmation: Keine Bestätigungsanweisungen erhalten?
     dont_have_your_security_key: Hast du keinen Sicherheitsschlüssel?
@@ -1006,7 +1006,7 @@ de:
       preamble_html: Melde dich mit deinen Zugangsdaten für <strong>%{domain}</strong> an. Solltest du dein Konto auf einem anderen Server registriert haben, ist eine Anmeldung hier nicht möglich.
       title: Bei %{domain} anmelden
     sign_up:
-      preamble: Mit einem Account auf diesem Mastodon-Server kannst du jeder anderen Person im Netzwerk folgen, unabhängig davon, wo ihr Account gehostet wird.
+      preamble: Mit einem Account auf Geobla kannst du jeder anderen Person im Mastodon-Netzwerk folgen, unabhängig davon, wo ihr Account gehostet wird.
       title: Okay, lass uns mit %{domain} anfangen.
     status:
       account_status: Kontostatus
@@ -1119,7 +1119,7 @@ de:
       content: Bitte verzeih', etwas ist bei uns schiefgegangen.
       title: Diese Seite ist kaputt
     '503': Die Seite konnte wegen eines temporären Serverfehlers nicht angezeigt werden.
-    noscript_html: Bitte aktiviere JavaScript, um die Mastodon-Web-Anwendung zu verwenden. Alternativ kannst du auch eine der <a href="%{apps_path}">nativen Mastodon-Anwendungen</a> für deine Plattform probieren.
+    noscript_html: Bitte aktiviere JavaScript, um die Geobla-Web-Anwendung zu verwenden. Alternativ kannst du auch eine der <a href="%{apps_path}">nativen Mastodon-Anwendungen</a> für deine Plattform probieren.
   existing_username_validator:
     not_found: kann lokale*n Benutzer*in mit diesem Profilnamen nicht finden
     not_found_multiple: "%{usernames} können nicht gefunden werden"
@@ -1449,7 +1449,7 @@ de:
       weibo: Weibo
     current_session: Aktuelle Sitzung
     description: "%{browser} auf %{platform}"
-    explanation: Dies sind die Webbrowser, die derzeit mit deinem Mastodon-Konto verbunden sind.
+    explanation: Dies sind die Webbrowser, die derzeit mit deinem Konto verbunden sind.
     ip: IP-Adresse
     platforms:
       adobe_air: Adobe Air
@@ -1474,7 +1474,7 @@ de:
     aliases: Kontoaliase
     appearance: Design
     authorized_apps: Genehmigte Apps
-    back: Zurück zu Mastodon
+    back: Zurück zu Geobla
     delete: Konto löschen
     development: Entwicklung
     edit_profile: Profil bearbeiten
@@ -1545,7 +1545,7 @@ de:
     enabled: Automatisch alte Beiträge löschen
     enabled_hint: Löscht automatisch deine Beiträge, sobald sie die angegebene Altersgrenze erreicht haben, es sei denn, sie entsprechen einer der unten angegebenen Ausnahmen
     exceptions: Ausnahmen
-    explanation: Damit Mastodon nicht durch das Löschen von Beiträgen ausgebremst wird, wartet der Server damit, bis wenig los ist. Aus diesem Grund werden deine Beiträge ggf. erst einige Zeit nach Erreichen der Altersgrenze gelöscht.
+    explanation: Damit Geobla nicht durch das Löschen von Beiträgen ausgebremst wird, wartet der Server damit, bis wenig los ist. Aus diesem Grund werden deine Beiträge ggf. erst einige Zeit nach Erreichen der Altersgrenze gelöscht.
     ignore_favs: Favoriten ignorieren
     ignore_reblogs: Geteilte Beiträge ignorieren
     interaction_exceptions: Ausnahmen basierend auf Interaktionen
@@ -1620,7 +1620,7 @@ de:
       subject: Dein Einspruch vom %{date} wurde abgelehnt
       title: Einspruch abgelehnt
     backup_ready:
-      explanation: Du hast eine vollständige Sicherung deines Mastodon-Kontos angefordert. Das Backup kann jetzt heruntergeladen werden!
+      explanation: Du hast eine vollständige Sicherung deines Kontos angefordert. Das Backup kann jetzt heruntergeladen werden!
       subject: Dein persönliches Archiv kann heruntergeladen werden
       title: Archivmitnahme
     suspicious_sign_in:
@@ -1669,7 +1669,7 @@ de:
       final_step: 'Fang jetzt an zu posten! Selbst ohne Follower werden deine öffentlichen Beiträge von anderen gesehen, zum Beispiel in der lokalen Timeline oder über die Hashtags. Möglicherweise möchtest du dich allen mit dem Hashtag #neuhier vorstellen.'
       full_handle: Dein vollständiger Profilname
       full_handle_hint: Dies ist, was du deinen Freunden sagen kannst, damit sie dich anschreiben oder dir von einem anderen Server folgen können.
-      subject: Willkommen bei Mastodon
+      subject: Willkommen bei Geobla
       title: Willkommen an Bord, %{name}!
   users:
     follow_limit_reached: Du kannst nicht mehr als %{limit} Leuten folgen
@@ -1678,7 +1678,7 @@ de:
     seamless_external_login: Du bist über einen externen Dienst angemeldet, daher sind Passwort- und E-Mail-Einstellungen nicht verfügbar.
     signed_in_as: 'Angemeldet als:'
   verification:
-    explanation_html: 'Du kannst <strong>bestätigen, dass die Links in deinen Profil-Metadaten dir gehören</strong>. Dafür muss die verlinkte Website einen Link zurück auf dein Mastodon-Profil enthalten. Dieser Link <strong>muss</strong> ein <code>rel="me"</code>-Attribut enthalten. Der Linktext ist dabei egal. Hier ist ein Beispiel:'
+    explanation_html: 'Du kannst <strong>bestätigen, dass die Links in deinen Profil-Metadaten dir gehören</strong>. Dafür muss die verlinkte Website einen Link zurück auf dein Geobla-Profil enthalten. Dieser Link <strong>muss</strong> ein <code>rel="me"</code>-Attribut enthalten. Der Linktext ist dabei egal. Hier ist ein Beispiel:'
     verification: Verifizierung
   webauthn_credentials:
     add: Sicherheitsschlüssel hinzufügen

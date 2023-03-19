@@ -1,7 +1,7 @@
 ---
 fr:
   about:
-    about_mastodon_html: 'Le réseau social de l''avenir : pas de publicité, pas de surveillance institutionnelle, conception éthique et décentralisation ! Gardez le contrôle de vos données avec Mastodon !'
+    about_mastodon_html: 'Le réseau social pour Vanlive & Camping. Sans publicité et en réseau décentralisé dans Fedivers, 100% compatible avec Mastodon. Commence dès maintenant !'
     contact_missing: Non défini
     contact_unavailable: Non disponible
     hosted_on: Message de %{domain}
@@ -657,7 +657,7 @@ fr:
         moderation: Modération
         special: Spécial
       delete: Supprimer
-      description_html: Les <strong>rôles utilisateur</strong> vous permettent de personnaliser les fonctions et les zones de Mastodon auxquelles vos utilisateur⋅rice⋅s peuvent accéder.
+      description_html: Les <strong>rôles utilisateur</strong> vous permettent de personnaliser les fonctions et les zones de Geobla auxquelles vos utilisateur⋅rice⋅s peuvent accéder.
       edit: Modifier le rôle '%{name}'
       everyone: Autorisations par défaut
       everyone_full_description_html: Ceci est le <strong>rôle de base</strong> qui impacte <strong>tou⋅te⋅s les utilisateur⋅rice⋅s</strong>, même celleux sans rôle assigné. Tous les autres rôles héritent des autorisations de celui-ci.
@@ -720,20 +720,20 @@ fr:
         rules_hint: Il y a un espace dédié pour les règles auxquelles vos utilisateurs sont invités à adhérer.
         title: À propos
       appearance:
-        preamble: Personnaliser l'interface web de Mastodon.
+        preamble: Personnaliser l'interface web de Geobla.
         title: Apparence
       branding:
-        preamble: L'image de marque de votre serveur la différencie des autres serveurs du réseau. Ces informations peuvent être affichées dans nombre d'environnements, tels que l'interface web de Mastodon, les applications natives, dans les aperçus de liens sur d'autres sites Web et dans les applications de messagerie, etc. C'est pourquoi il est préférable de garder ces informations claires, courtes et concises.
+        preamble: L'image de marque de votre serveur la différencie des autres serveurs du réseau. Ces informations peuvent être affichées dans nombre d'environnements, tels que l'interface web de Geobla, les applications natives, dans les aperçus de liens sur d'autres sites Web et dans les applications de messagerie, etc. C'est pourquoi il est préférable de garder ces informations claires, courtes et concises.
         title: Thème
       content_retention:
-        preamble: Contrôle comment le contenu créé par les utilisateurs est enregistré et stocké dans Mastodon.
+        preamble: Contrôle comment le contenu créé par les utilisateurs est enregistré et stocké dans Geobla.
         title: Rétention du contenu
       default_noindex:
         desc_html: Affecte tous les comptes qui n'ont pas modifié ce paramètre
         title: Par défaut, ne pas indexer les comptes dans les moteurs de recherche
       discovery:
         follow_recommendations: Suivre les recommandations
-        preamble: Il est essentiel de donner de la visibilité à des contenus intéressants pour attirer des utilisateur⋅rice⋅s néophytes qui ne connaissent peut-être personne sur Mastodon. Contrôlez le fonctionnement des différentes fonctionnalités de découverte sur votre serveur.
+        preamble: Il est essentiel de donner de la visibilité à des contenus intéressants pour attirer des utilisateur⋅rice⋅s néophytes qui ne connaissent peut-être personne sur Geobla. Contrôlez le fonctionnement des différentes fonctionnalités de découverte sur votre serveur.
         profile_directory: Annuaire des profils
         public_timelines: Fils publics
         publish_discovered_servers: Publier les serveurs découverts
@@ -881,7 +881,7 @@ fr:
     webhooks:
       add_new: Ajouter un point de terminaison
       delete: Supprimer
-      description_html: Un <strong>point d'ancrage web</strong> permet à Mastodon d'envoyer des <strong>notifications en temps réel</strong> concernant des événements sélectionnés vers votre propre application, afin que celle-ci puisse <strong>déclencher automatiquement des réactions</strong>.
+      description_html: Un <strong>point d'ancrage web</strong> permet à Geobla d'envoyer des <strong>notifications en temps réel</strong> concernant des événements sélectionnés vers votre propre application, afin que celle-ci puisse <strong>déclencher automatiquement des réactions</strong>.
       disable: Désactiver
       disabled: Désactivé
       edit: Modifier le point de terminaison
@@ -970,8 +970,8 @@ fr:
     delete_account: Supprimer le compte
     delete_account_html: Si vous désirez supprimer votre compte, vous pouvez <a href="%{path}">cliquer ici</a>. Il vous sera demandé de confirmer cette action.
     description:
-      prefix_invited_by_user: "@%{name} vous invite à rejoindre ce serveur Mastodon !"
-      prefix_sign_up: Inscrivez-vous aujourd’hui sur Mastodon !
+      prefix_invited_by_user: "@%{name} vous invite à rejoindre Geobla !"
+      prefix_sign_up: Inscrivez-vous aujourd’hui sur Geobla !
       suffix: Avec un compte, vous pourrez suivre des gens, publier des statuts et échanger des messages avec les utilisateur·rice·s de n'importe quel serveur Mastodon et bien plus !
     didnt_get_confirmation: Vous n’avez pas reçu les consignes de confirmation ?
     dont_have_your_security_key: Vous n'avez pas votre clé de sécurité?
@@ -1006,7 +1006,7 @@ fr:
       preamble_html: Connectez-vous avec vos identifiants sur <strong>%{domain}</strong>. Si votre compte est hébergé sur un autre serveur, vous ne pourrez pas vous connecter ici.
       title: Se connecter à %{domain}
     sign_up:
-      preamble: Avec un compte sur ce serveur Mastodon, vous serez en mesure de suivre toute autre personne sur le réseau, quel que soit l’endroit où son compte est hébergé.
+      preamble: Avec un compte sur Geobla, vous serez en mesure de suivre toute autre personne sur le réseau Mastodon, quel que soit l’endroit où son compte est hébergé.
       title: Mettons les choses en place pour %{domain}.
     status:
       account_status: État du compte
@@ -1119,7 +1119,7 @@ fr:
       content: Nous sommes désolé·e·s, mais quelque chose s’est mal passé de notre côté.
       title: Cette page n’est pas correcte
     '503': La page n'a pas pu être servie en raison d'une défaillance temporaire du serveur.
-    noscript_html: Pour utiliser Mastodon, veuillez activer JavaScript. Sinon, essayez l’une des <a href="%{apps_path}">applications natives</a> pour Mastodon pour votre plate-forme.
+    noscript_html: Pour utiliser Geobla, veuillez activer JavaScript. Sinon, essayez l’une des <a href="%{apps_path}">applications natives</a> pour Mastodon pour votre plate-forme.
   existing_username_validator:
     not_found: impossible de trouver un·e utilisateur·ice local·e de ce nom
     not_found_multiple: n’a pas trouvé %{usernames}
@@ -1449,7 +1449,7 @@ fr:
       weibo: Weibo
     current_session: Session courante
     description: "%{browser} sur %{platform}"
-    explanation: Ceci est la liste des navigateurs actuellement connectés à votre compte Mastodon.
+    explanation: Ceci est la liste des navigateurs actuellement connectés à votre compte Geobla.
     ip: Adresse IP
     platforms:
       adobe_air: Adobe Air
@@ -1474,7 +1474,7 @@ fr:
     aliases: Alias du compte
     appearance: Apparence
     authorized_apps: Applications autorisées
-    back: Retour vers Mastodon
+    back: Retour vers Geobla
     delete: Suppression du compte
     development: Développement
     edit_profile: Modifier le profil
@@ -1586,9 +1586,9 @@ fr:
   tags:
     does_not_match_previous_name: ne correspond pas au nom précédent
   themes:
-    contrast: Mastodon (Contraste élevé)
-    default: Mastodon (Sombre)
-    mastodon-light: Mastodon (Clair)
+    contrast: Contraste élevé
+    default: Sombre
+    mastodon-light: Clair
   time:
     formats:
       default: "%d %b %Y, %H:%M"
@@ -1620,7 +1620,7 @@ fr:
       subject: Votre appel du %{date} a été rejeté
       title: Appel rejeté
     backup_ready:
-      explanation: Vous avez demandé une sauvegarde complète de votre compte Mastodon. Elle est maintenant prête à être téléchargée !
+      explanation: Vous avez demandé une sauvegarde complète de votre compte Geobla. Elle est maintenant prête à être téléchargée !
       subject: Votre archive est prête à être téléchargée
       title: Récupération de l’archive
     suspicious_sign_in:
@@ -1669,7 +1669,7 @@ fr:
       final_step: 'Commencez à publier ! Même si vous n''avez pas encore d''abonnés, vos publications sont publiques et sont accessibles par les autres, par exemple grâce à la zone horaire locale ou par les hashtags. Vous pouvez vous présenter sur le hashtag #introductions.'
       full_handle: Votre identifiant complet
       full_handle_hint: C’est ce que vous diriez à vos ami·e·s pour leur permettre de vous envoyer un message ou vous suivre à partir d’un autre serveur.
-      subject: Bienvenue sur Mastodon
+      subject: Bienvenue sur Geobla
       title: Bienvenue à bord, %{name} !
   users:
     follow_limit_reached: Vous ne pouvez pas suivre plus de %{limit} personnes
@@ -1678,7 +1678,7 @@ fr:
     seamless_external_login: Vous êtes connecté via un service externe, donc les paramètres concernant le mot de passe et le courriel ne sont pas disponibles.
     signed_in_as: 'Connecté·e en tant que :'
   verification:
-    explanation_html: 'Vous pouvez <strong>vous vérifier en tant que propriétaire des liens dans les métadonnées de votre profil</strong>. Pour cela, le site web lié doit contenir un lien vers votre profil Mastodon. Le lien de retour <strong>doit</strong> avoir un attribut <code>rel="me"</code> . Le texte du lien n’a pas d’importance. Voici un exemple :'
+    explanation_html: 'Vous pouvez <strong>vous vérifier en tant que propriétaire des liens dans les métadonnées de votre profil</strong>. Pour cela, le site web lié doit contenir un lien vers votre profil Geobla. Le lien de retour <strong>doit</strong> avoir un attribut <code>rel="me"</code> . Le texte du lien n’a pas d’importance. Voici un exemple :'
     verification: Vérification
   webauthn_credentials:
     add: Ajouter une nouvelle clé de sécurité

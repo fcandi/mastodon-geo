@@ -120,10 +120,13 @@ namespace :geo do
     if place
       p 'Place already there '
       p place
+      unless place.status
+        place.create_bot_post
+      end
       place.add_visit! account
     end
     return place if place
-    place_types = %w(free free air wild camp)
+    place_types = %w(free free paid wild camp)
     place=Place.new(
       created_at: DateTime.parse(place_data['attributes']['created_at']),
       placetype: place_types[place_data['attributes']['place_type']],
