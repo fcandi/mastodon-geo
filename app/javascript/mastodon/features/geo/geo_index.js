@@ -389,7 +389,7 @@ export const GeoIndex = (props) => {
             <ChooseCoords
               {...{ onCoordButton }}
             />
-              {update_right &&
+              {(command=='edit'&&update_right) &&
                 <DeleteButton
                   {...{ onDeleteButton }}
                 /> }
