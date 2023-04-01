@@ -2,7 +2,7 @@ namespace :geo do
 
   desc 'mein Test'
   task geobla_move: :environment do
-    WorkLimit = 2
+    WorkLimit = 50
     mytask = GeoUser.where('status < 2').first
     exit true unless mytask
     mytask.status=99
