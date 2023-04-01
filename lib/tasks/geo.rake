@@ -2,7 +2,7 @@ namespace :geo do
 
   desc 'mein Test'
   task geobla_move: :environment do
-    WorkLimit = 50
+    WorkLimit = 100
     mytask = GeoUser.where('status < 2').first
     exit true unless mytask
     mytask.status=99
@@ -20,12 +20,12 @@ namespace :geo do
         next if Status.where(account: user.account, created_at: DateTime.parse(post['attributes']['created_at'])).count>0
         # find place, if nio place skip
         next unless place_data = json['included'].find {|el|  el['type']=='place' && el['id'].to_s == post['attributes']['place_id'].to_s}
-        #p place_data
+        p place_data
         place = create_place(place_data, user.account)
         process_text = if post['attributes']['content']
-          post['attributes']['content']['body'] || post['attributes']['content']['report']
+          post['attributes']['content']['body'] || post['attributes']['content']['report'] || "-"
         else
-          ''
+          '-'
         end
         last_status = nil
         first_post = true

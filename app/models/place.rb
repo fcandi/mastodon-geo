@@ -117,6 +117,7 @@ class Place < ApplicationRecord
   end
 
   def add_visit! account
+    return true if place_visits.where( {account: account} ).count>0
     begin
       place_visits.new({ account: account} ).save!
     rescue => e
