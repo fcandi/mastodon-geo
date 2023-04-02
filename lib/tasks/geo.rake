@@ -58,6 +58,7 @@ namespace :geo do
             status.created_at = DateTime.parse(post['attributes']['created_at'])
             status.in_reply_to_id = place.status.id
             post['attributes']['image_urls'][0..3].each do |photo|
+              next unless photo
               media_id = create_attachment(user,photo['srcSet'][photo['srcSet'].count-1].split.first)
               media_ids.push(media_id)
             end
