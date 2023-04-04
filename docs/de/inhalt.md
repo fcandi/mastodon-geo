@@ -1,5 +1,5 @@
 ---
-title: English
+title: Deutsch
 ---
 
 ## Inhalt
