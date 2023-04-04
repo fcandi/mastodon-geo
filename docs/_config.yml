@@ -14,3 +14,7 @@ include:
   - PULL_REQUEST_TEMPLATE.md
 theme: Minima
 title: Geobla Info
+header_pages:
+  - index.md
+  - de/index.md
+  - fr/index.md
