@@ -1,7 +1,7 @@
 # Geobla
 
 Hier findet ihr das:
-![[Geobla/Docs/Files/Bildschirmfoto vom 2023-04-03 14-41-48.png]]
+!(Files/Bildschirmfoto vom 2023-04-03 14-41-48.png)
 *Post and replies*
 
 So einfach!!!
