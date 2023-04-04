@@ -3,15 +3,13 @@ title: English
 share: true
 ---
 
-##  Geobla Support Pages
+## Geobla Support Pages
 
-- [Hier klicken für die Deutsche Version](de/inhalt)
-- [Hier klicken für die Deutsche Version](Geobla/Docs/fr/move.md)
+[[de/index|Deutsche Version]]
+[[fr/index|Versionm francais]]
 
-Also das ist ei unTest
+## Guides & FAQ
 
+[[en/move|Switch guide from old to new Geobla]]
 
-## Contens
-
-- [Successfuly move to the New Geobla](en/move)
 
