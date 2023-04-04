@@ -1,4 +1,15 @@
-# Geobla
+# English
+
+## Support documents for Geobla
+
+- [Hier klicken für die Deutsche Version](de/index)
+- []
+
+
+
+
+
+
 
 Hier findet ihr das:
 ![Files/screen1.png]
@@ -6,7 +17,7 @@ Hier findet ihr das:
 
 So einfach!!!
 
-[Hier gehrts lang](index#das-ist-eine-sache)
+[Hier gehrts lang](Geobla/Docs/de/index.md#das-ist-eine-sache)
 
 Und Genial!!!
 
