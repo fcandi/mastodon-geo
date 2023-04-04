@@ -2,7 +2,6 @@
 title: English
 ---
 
-# English
 ## Das ist WEnglish
 ## Support documents for Geobla
 
