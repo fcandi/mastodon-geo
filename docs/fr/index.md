@@ -1,9 +1,14 @@
-# Francais
+## Déménagement vers la nouvelle Geobla
 
-Hier findet ihr das:
-![[screen1.png]]
-*Post and replies*
+Où est quoi ? La structure du nouveau Geobla est très différente. Ici, tu apprendras où trouver tout si tu es habitué à l'ancienne Geobla :
 
-So einfach!!!
+### L'un
 
-Und Genial!!!
+wefonwefiounwerf
+
+![l'un](../assets/screen1.png)
+
+### L'autre
+
+
+### Et encore as

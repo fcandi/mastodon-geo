@@ -2,39 +2,13 @@
 title: English
 ---
 
-## Das ist WEnglish
-## Support documents for Geobla
+##  Geobla Support Pages
 
 - [Hier klicken für die Deutsche Version](de/index)
-- []
+- [Hier klicken für die Deutsche Version](fr/index)
 
 
+## Contens
 
+- [Successfuly move to the New Geobla](en/move)
 
-
-
-
-Hier findet ihr das:
-![Files/screen1.png]
-*Post and replies*
-
-So einfach!!!
-
-[Hier gehrts lang](Geobla/Docs/de/index.md#das-ist-eine-sache)
-
-Und Genial!!!
-
-wifeouhbweofihu wioefbnwef qef AEdfwdfgwef wifeouhbweofihu wioefbnwef qef AEdfwdfgwef wifeouhbweofihu wioefbnwef qef AEdfwdfgwef wifeouhbweofihu wioefbnwef qef AEdfwdfgwef wifeouhbweofihu wioefbnwef qef AEdfwdfgwef wifeouhbweofihu wioefbnwef qef AEdfwdfgwef wifeouhbweofihu wioefbnwef qef AEdfwdfgwef wifeouhbweofihu wioefbnwef qef AEdfwdfgwef 
-wifeouhbweofihu wioefbnwef qef AEdfwdfgwef wifeouhbweofihu wioefbnwef qef AEdfwdfgwef wifeouhbweofihu wioefbnwef qef AEdfwdfgwef 
-
-wifeouhbweofihu wioefbnwef qef AEdfwdfgwef wifeouhbweofihu wioefbnwef qef AEdfwdfgwef wifeouhbweofihu wioefbnwef qef AEdfwdfgwef wifeouhbweofihu wioefbnwef qef AEdfwdfgwef wifeouhbweofihu wioefbnwef qef AEdfwdfgwef wifeouhbweofihu wioefbnwef qef AEdfwdfgwef wifeouhbweofihu wioefbnwef qef AEdfwdfgwef 
-
-wifeouhbweofihu wioefbnwef qef AEdfwdfgwef wifeouhbweofihu wioefbnwef qef AEdfwdfgwef wifeouhbweofihu wioefbnwef qef AEdfwdfgwef wifeouhbweofihu wioefbnwef qef AEdfwdfgwef wifeouhbweofihu wioefbnwef qef AEdfwdfgwef 
-
-wifeouhbweofihu wioefbnwef qef AEdfwdfgwef wifeouhbweofihu wioefbnwef qef AEdfwdfgwef wifeouhbweofihu wioefbnwef qef AEdfwdfgwef wifeouhbweofihu wioefbnwef qef AEdfwdfgwef wifeouhbweofihu wioefbnwef qef AEdfwdfgwef 
-
-
-## Das ist eine Sache
-
-[Hier gehts weiter](Geobla-FAQ)
-![Mein Foto](assets/screen1.png)

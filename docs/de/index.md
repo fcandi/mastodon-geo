@@ -1,9 +1,7 @@
-# Deutsch
+---
+title: English
+---
 
-Hier findet ihr das:
-![[screen1.png]]
-*Post and replies*
+## Inhalt
 
-So einfach!!!
-
-Und Genial!!!
+- [Umzug zum neuen Geobla](move)
