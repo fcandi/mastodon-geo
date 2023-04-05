@@ -3,7 +3,6 @@ share: true
 title: Geobla Docs
 ---
 
-- ### [Move to New Geobla FAQ (english)](./move-en.md#)
+- ### [Moving to the new Geobla (english)](./move-en.md#)
 - ### [Umzug zum neuen Geobla FAQ (deutsch)](./move-de.md#) 
-- ### [ UMzug fr](./mode-fr.md#)
-- 
+- ### [Déménagement vers la nouvelle Geobla (française)](./mode-fr.md#)
