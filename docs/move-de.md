@@ -4,6 +4,11 @@ title: Umzug zum neuen Geobla
 ---
 
 Was du wissen musst, um den Umzug auf das neue Geobla zu meistern:  !!!
+
+- [Grundlegendes zur neuen Version](move-de.md#grundlegendes-zur-neuen-version)
+- [Warum der Wechsel auf das neue Geobla](move-de.md#warum-der-wechsel-auf-das-neue-geobla)
+- [Wo finde ich was im neuen Geobla?](move-de.md#wo-finde-ich-was-im-neuen-geobla)
+
   
 ## Grundlegendes zur neuen Version 
 
@@ -16,6 +21,3 @@ Das bisherige Geobla inkl. der mobilen Apps wurde von mir (Andreas) alleine entw
 ## Wo finde ich was im neuen Geobla?  
 
 Wenn du dich einloggst bei Geobla.net erscheint direkt die Community-Ansicht, also alle Posts deiner Freunde. Das ist sehr ähnlich wie bei Geobla. Um auf die Kate zu gelangen, drückst du auf das Kartensymbol, welches sich nun im rechten Menü auf dem 2. Platz befindet. Dort erscheint auch der Knopf, um einen neuen Platz zu erstellen. Auf vorhandenen Plätzen postest du im Grunde auch wie vorher: Klicke erst auf einen Platz auf der Karte. Oben in dem Fenster findest du den Knopf zum Postenauf dem Knopf. Die Suche nach Usern versteckt sich im Menü unter dem # Menü. Alle
-
-![screen1.png](screen1.png)
-*wefiojeifjef*
