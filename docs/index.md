@@ -3,4 +3,4 @@ share: true
 title: Geobla Docs
 ---
 
-[Umzug zum neuen Geobla](./Umzug%20zum%20neuen%20Geobla.md#) (Deutsch)
+[Umzug zum neuen Geobla](./move-de.md#) (Deutsch)
