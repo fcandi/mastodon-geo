@@ -8,7 +8,7 @@ What you need to know to master the move to the new Geobla:
 - [Basic information about the new version](.md#basic-information-about-the-new-version)
 - [Why the change to the new Geobla?](.md#why-the-change-to-the-new-geobla)
 - [Where can I find what in the new Geobla?](.md#where-can-i-find-what-in-the-new-geobla)
-	- [News from the community](.md#where-can-i-find-what-in-the-new-geoblanews-from-the-community)
+	- [#Where can I find what in the new Geobla?#News from the community](.md#where-can-i-find-what-in-the-new-geoblanews-from-the-community)
 	- [The map](.md#where-can-i-find-what-in-the-new-geoblathe-map)
 	- [User list](.md#where-can-i-find-what-in-the-new-geoblauser-list)
 	- [My profile](.md#where-can-i-find-what-in-the-new-geoblamy-profile)
