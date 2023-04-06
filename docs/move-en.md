@@ -5,25 +5,25 @@ title: Moving to the new Geobla
 
 What you need to know to master the move to the new Geobla:
 
-- [Basic information about the new version](.md#basic-information-about-the-new-version)
-- [Why the change to the new Geobla?](.md#why-the-change-to-the-new-geobla)
-- [Where can I find what in the new Geobla?](.md#where-can-i-find-what-in-the-new-geobla)
-	- [News from the community](.md#where-can-i-find-what-in-the-new-geoblanews-from-the-community)
-	- [The map](.md#where-can-i-find-what-in-the-new-geoblathe-map)
-	- [User list](.md#where-can-i-find-what-in-the-new-geoblauser-list)
-	- [My profile](.md#where-can-i-find-what-in-the-new-geoblamy-profile)
-	- [Like me](.md#where-can-i-find-what-in-the-new-geoblalike-me)
-	- [Discussion forums](.md#where-can-i-find-what-in-the-new-geobladiscussion-forums)
-	- [Notifications](.md#where-can-i-find-what-in-the-new-geoblanotifications)
-	- [New post](.md#where-can-i-find-what-in-the-new-geoblanew-post)
-	- [Place functions](.md#where-can-i-find-what-in-the-new-geoblaplace-functions)
-	- [Settings](.md#where-can-i-find-what-in-the-new-geoblasettings)
-- [New functions](.md#new-functions)
-	- [Personal messages](.md#new-functionspersonal-messages)
-	- [Bookmarks](.md#new-functionsbookmarks)
-	- [Share / boost post](.md#new-functionsshare-boost-post)
-- [Missing functions](.md#missing-functions)
-- [The place bot post](.md#the-place-bot-post)
+- [Basic information about the new version](move-en.md#basic-information-about-the-new-version)
+- [Why the change to the new Geobla?](move-en.md#why-the-change-to-the-new-geobla)
+- [Where can I find what in the new Geobla?](move-en.md#where-can-i-find-what-in-the-new-geobla)
+	- [News from the community](move-en.md#where-can-i-find-what-in-the-new-geobla)
+	- [The map](move-en.md#where-can-i-find-what-in-the-new-geobla)
+	- [User list](move-en.md#where-can-i-find-what-in-the-new-geobla)
+	- [My profile](move-en.md#where-can-i-find-what-in-the-new-geobla)
+	- [Like me](move-en.md#where-can-i-find-what-in-the-new-geobla)
+	- [Discussion forums](move-en.md#where-can-i-find-what-in-the-new-geobla)
+	- [Notifications](move-en.md#where-can-i-find-what-in-the-new-geobla)
+	- [New post](move-en.md#where-can-i-find-what-in-the-new-geobla)
+	- [Place functions](move-en.md#where-can-i-find-what-in-the-new-geobla)
+	- [Settings](move-en.md#where-can-i-find-what-in-the-new-geobla)
+- [New functions](move-en.md#new-functions)
+	- [Personal messages](move-en.md#new-functions)
+	- [Bookmarks](move-en.md#new-functions)
+	- [Share / boost post](move-en.md#new-functions)
+- [Missing functions](move-en.md#missing-functions)
+- [The place bot post](move-en.md#the-place-bot-post)
 
 
 ## Basic information about the new version 
@@ -56,7 +56,7 @@ You will find the map under the familiar map icon, which is located directly und
 - Click on the 3 dots in the menu at the bottom right.
 - Then scroll all the way down and click on Profile Directory.
 
-If you do not find yourself in the user list, you have to flip a switch in your user profile, see also [#My Profile](.md#my-profile).
+If you do not find yourself in the user list, you have to flip a switch in your user profile, see also [My Profile](move-en.md#my-profile).
 
 You will find the search for a user under the # symbol on the right in the menu.
 
@@ -86,7 +86,7 @@ You now have two options:
 1. post a free message without a link to a place on the map.
    Post something to the community and your friends by clicking on "Publish" in the top right-hand corner and start writing. If you wish, add a pAndreasr hashtag so that more users you don't know yet become aware of your post!
 2. check-in / post na a place on the map
-   First click on [#The Map](.md#the-map), choose a place or create a new place and then press the button "Post". The only difference to the free post is that this post is automatically assigned to the square.
+   First click on [The Map](move-en.md#the-map), choose a place or create a new place and then press the button "Post". The only difference to the free post is that this post is automatically assigned to the square.
    Each space has an automatic post under which your own post will appear. You can find more information under 
 
 ### Place functions
@@ -126,7 +126,7 @@ The following functions from the old Geobla are still missing and will be added 
 
 Whenever a new place is created, Geobla creates an automatic bot post to the place, which looks like this for example:
 
-![botpost.png](botpost.png#)
+![botpost.png](./botpost.png#)
 **Example of a bot post**
 
 Here you can perform the following actions:
