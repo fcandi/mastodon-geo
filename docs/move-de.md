@@ -38,7 +38,7 @@ Die Karte findest du unter dem gewohnten Kartensymbol, das sich direkt unter dem
 - Klicke auf die 3 Punkte im Menü rechts ganz unten.
 - Dann scrolle ganz nach unten und klicke auf Profilverzeichnis.
 
-Wenn du dich selbst nicht in der Userliste findest, musst du einen Schalter in deinem Userprofil umlegen, siehe auch [Mein Profil](move-de.md#mein-profil)
+Wenn du dich selbst nicht in der Userliste findest, musst du einen Schalter in deinem Userprofil umlegen, siehe auch [#Mein Profil](.md#mein-profil)
 
 Die Suche nach einem User findest du unter dem # Symbol rechts im Menü.
 
@@ -68,7 +68,7 @@ Du hast nun zwei Möglichkeiten:
 1. Freien Beitrag ohne Link zu einem Platz auf der Karte
    Poste etwas an die Community und deine Freunde, in dem du oben rechts auf "Veröffentlichen" klickst und losschreibst. Vergib auf Wunsch noch ein pAndreasr Hashtags, damit mehr User, die du noch nicht kennst, auf deinen Post aufmerksam werden!
 2. Check-in / Beitrag na einem Platz auf der Karte
-   Klicke erst auf [Die Karte](move-de.md#die-karte), wähle einen Platz oder erstelle einen neuen Platz und drücke dann den Knopf "Beitrag schreiben". Der Unterschied zu dem freien Beitrag ist lediglich, dass dieser Beitrag automatisch dem Platz zugeordnet wird.
+   Klicke erst auf [#Die Karte](.md#die-karte), wähle einen Platz oder erstelle einen neuen Platz und drücke dann den Knopf "Beitrag schreiben". Der Unterschied zu dem freien Beitrag ist lediglich, dass dieser Beitrag automatisch dem Platz zugeordnet wird.
    Jeder Platz hat einen automatischen Post, unter dem dein eigener Beitrag dann erscheint. Mehr Informationen findest du unter 
 
 ### Platz-Funktionen
@@ -108,7 +108,7 @@ Folgende Funktionen aus dem alten Geobla fehlen noch und werden bald nachgereich
 
 Immer, wenn ein neuer Platz angelegt wird, erstellt Geobla einen automatischen Bot-Post zu dem Platz, der z.B. so aussieht:
 
-![botpost.png](./botpost.png#)
+![botpost.png](botpost.png#)
 **Beispiel für einen Bot-Post**
 
 Hier kannst du folgende Aktionen durchführen:
