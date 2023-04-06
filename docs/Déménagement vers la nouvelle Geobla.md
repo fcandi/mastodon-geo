@@ -4,25 +4,25 @@ share : true
 
 Ce que tu dois savoir pour réussir le déménagement vers la nouvelle Geobla :
 
-- [Principes de base de la nouvelle version](.md#principes-de-base-de-la-nouvelle-version)
-- [Pourquoi passer à la nouvelle Geobla ?](.md#pourquoi-passer-a-la-nouvelle-geobla)
-- [Où trouver quoi dans la nouvelle Geobla ?](.md#ou-trouver-quoi-dans-la-nouvelle-geobla)
-	- [Nouvelles de la communauté](.md#ou-trouver-quoi-dans-la-nouvelle-geobla-nouvelles-de-la-communaute)
-	- [La carte](.md#ou-trouver-quoi-dans-la-nouvelle-geobla-la-carte)
-	- [Liste des utilisateurs](.md#ou-trouver-quoi-dans-la-nouvelle-geobla-liste-des-utilisateurs)
-	- [Mon profil](.md#ou-trouver-quoi-dans-la-nouvelle-geobla-mon-profil)
-	- [J'aime](.md#ou-trouver-quoi-dans-la-nouvelle-geobla-jaime)
-	- [Forums de discussion](.md#ou-trouver-quoi-dans-la-nouvelle-geobla-forums-de-discussion)
-	- [Notifications](.md#ou-trouver-quoi-dans-la-nouvelle-geobla-notifications)
-	- [Nouvelle contribution](.md#ou-trouver-quoi-dans-la-nouvelle-geobla-nouvelle-contribution)
-	- [Fonctions des places](.md#ou-trouver-quoi-dans-la-nouvelle-geobla-fonctions-des-places)
-	- [Paramètres](.md#ou-trouver-quoi-dans-la-nouvelle-geobla-parametres)
-- [Nouvelles fonctions](.md#nouvelles-fonctions)
-	- [Messages personnels](.md#nouvelles-fonctionsmessages-personnels)
-	- [Signet](.md#nouvelles-fonctionssignet)
-	- [Partager / booster une contribution](.md#nouvelles-fonctionspartager-booster-une-contribution)
-- [Fonctions encore manquantes](.md#fonctions-encore-manquantes)
-- [La place Bot-Post](.md#la-place-bot-post)
+- [Principes de base de la nouvelle version](D%C3%A9m%C3%A9nagement%20vers%20la%20nouvelle%20Geobla.md#principes-de-base-de-la-nouvelle-version)
+- [Pourquoi passer à la nouvelle Geobla ?](D%C3%A9m%C3%A9nagement%20vers%20la%20nouvelle%20Geobla.md#pourquoi-passer-a-la-nouvelle-geobla)
+- [Où trouver quoi dans la nouvelle Geobla ?](D%C3%A9m%C3%A9nagement%20vers%20la%20nouvelle%20Geobla.md#ou-trouver-quoi-dans-la-nouvelle-geobla)
+	- [Nouvelles de la communauté](D%C3%A9m%C3%A9nagement%20vers%20la%20nouvelle%20Geobla.md#ou-trouver-quoi-dans-la-nouvelle-geobla)
+	- [La carte](D%C3%A9m%C3%A9nagement%20vers%20la%20nouvelle%20Geobla.md#ou-trouver-quoi-dans-la-nouvelle-geobla)
+	- [Liste des utilisateurs](D%C3%A9m%C3%A9nagement%20vers%20la%20nouvelle%20Geobla.md#ou-trouver-quoi-dans-la-nouvelle-geobla)
+	- [Mon profil](D%C3%A9m%C3%A9nagement%20vers%20la%20nouvelle%20Geobla.md#ou-trouver-quoi-dans-la-nouvelle-geobla)
+	- [J'aime](D%C3%A9m%C3%A9nagement%20vers%20la%20nouvelle%20Geobla.md#ou-trouver-quoi-dans-la-nouvelle-geobla)
+	- [Forums de discussion](D%C3%A9m%C3%A9nagement%20vers%20la%20nouvelle%20Geobla.md#ou-trouver-quoi-dans-la-nouvelle-geobla)
+	- [Notifications](D%C3%A9m%C3%A9nagement%20vers%20la%20nouvelle%20Geobla.md#ou-trouver-quoi-dans-la-nouvelle-geobla)
+	- [Nouvelle contribution](D%C3%A9m%C3%A9nagement%20vers%20la%20nouvelle%20Geobla.md#ou-trouver-quoi-dans-la-nouvelle-geobla)
+	- [Fonctions des places](D%C3%A9m%C3%A9nagement%20vers%20la%20nouvelle%20Geobla.md#ou-trouver-quoi-dans-la-nouvelle-geobla)
+	- [Paramètres](D%C3%A9m%C3%A9nagement%20vers%20la%20nouvelle%20Geobla.md#ou-trouver-quoi-dans-la-nouvelle-geobla)
+- [Nouvelles fonctions](D%C3%A9m%C3%A9nagement%20vers%20la%20nouvelle%20Geobla.md#nouvelles-fonctions)
+	- [Messages personnels](D%C3%A9m%C3%A9nagement%20vers%20la%20nouvelle%20Geobla.md#nouvelles-fonctions)
+	- [Signet](D%C3%A9m%C3%A9nagement%20vers%20la%20nouvelle%20Geobla.md#nouvelles-fonctions)
+	- [Partager / booster une contribution](D%C3%A9m%C3%A9nagement%20vers%20la%20nouvelle%20Geobla.md#nouvelles-fonctions)
+- [Fonctions encore manquantes](D%C3%A9m%C3%A9nagement%20vers%20la%20nouvelle%20Geobla.md#fonctions-encore-manquantes)
+- [La place Bot-Post](D%C3%A9m%C3%A9nagement%20vers%20la%20nouvelle%20Geobla.md#la-place-bot-post)
 
 
 ## Principes de base de la nouvelle version 
@@ -55,7 +55,7 @@ Tu trouveras la carte sous l'icône habituelle de la carte, qui se trouve juste 
 - Clique sur les trois points du menu tout en bas à droite.
 - Ensuite, fais défiler jusqu'en bas et clique sur Répertoire des profils.
 
-Si tu ne te trouves pas dans la liste des utilisateurs, tu dois activer un bouton dans ton profil d'utilisateur, voir aussi [#Mon profil](.md#mon-profil).
+Si tu ne te trouves pas dans la liste des utilisateurs, tu dois activer un bouton dans ton profil d'utilisateur, voir aussi [Mon profil](D%C3%A9m%C3%A9nagement%20vers%20la%20nouvelle%20Geobla.md#mon-profil).
 
 Tu trouveras la recherche d'un utilisateur sous l'icône # à droite du menu.
 
@@ -85,7 +85,7 @@ Tu as maintenant deux possibilités :
 1. contribution libre sans lien vers une place sur la carte
    Publie quelque chose pour la communauté et tes amis en cliquant sur "Publier" en haut à droite et commence à écrire. Si tu le souhaites, ajoute un hashtag pAndreasr pour attirer l'attention de plus d'utilisateurs que tu ne connais pas encore sur ton post !
 2. check-in / contribution na une place sur la carte
-   Clique d'abord sur [#La carte](.md#la-carte), choisis une place ou crée une nouvelle place et appuie ensuite sur le bouton "écrire une contribution". La seule différence avec le post libre est que ce post est automatiquement attribué à la place.
+   Clique d'abord sur [La carte](D%C3%A9m%C3%A9nagement%20vers%20la%20nouvelle%20Geobla.md#la-carte), choisis une place ou crée une nouvelle place et appuie ensuite sur le bouton "écrire une contribution". La seule différence avec le post libre est que ce post est automatiquement attribué à la place.
    Chaque place a un post automatique sous lequel ta propre contribution apparaît. Tu trouveras plus d'informations sur 
 
 ### Fonctions des places
@@ -125,7 +125,7 @@ Les fonctions suivantes de l'ancienne Geobla manquent encore et seront bientôt 
 
 Chaque fois qu'une nouvelle place est créée, Geobla crée un bot-post automatique pour cette place, qui ressemble par exemple à ceci :
 
-![botpost.png](botpost.png#)
+![botpost.png](./botpost.png#)
 **Exemple d'un bot-post**.
 
 Ici, tu peux effectuer les actions suivantes :
