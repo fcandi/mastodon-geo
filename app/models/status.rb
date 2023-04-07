@@ -500,6 +500,7 @@ class Status < ApplicationRecord
     elsif conversation_id.nil?
       self.conversation = Conversation.new
     end
+    self.reply = false if self.in_reply_to_account_id && self.in_reply_to_account_id.to_s == ENV['GEO_BOT_ACCOUNT'] # SHOW PLACE POSTS IN PROFILE EVEN IF IT IS A REPLY
   end
 
   def carried_over_reply_to_account_id

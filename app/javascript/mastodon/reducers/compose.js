@@ -335,11 +335,11 @@ export default function compose(state = initialState, action) {
 
       map.update('media_attachments', list => list.filter(media => media.get('unattached')));
 
-      if (action.status.get('language') && !action.status.has('translation')) {
+      /*if (action.status.get('language') && !action.status.has('translation')) {
         map.set('language', action.status.get('language'));
-      } else {
+      } else {*/
         map.set('language', state.get('default_language'));
-      }
+      //}
 
       if (action.status.get('spoiler_text').length > 0) {
         map.set('spoiler', true);
