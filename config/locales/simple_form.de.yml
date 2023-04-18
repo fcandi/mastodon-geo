@@ -267,7 +267,7 @@ de:
       invite:
         comment: Kommentar
       invite_request:
-        text: Warum möchtest du beitreten?
+        text: Welcher Typ von Vanlifer bist du?
       ip_block:
         comment: Kommentar
         ip: IP-Adresse

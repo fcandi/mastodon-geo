@@ -267,7 +267,7 @@ en:
       invite:
         comment: Comment
       invite_request:
-        text: Why do you want to join?
+        text: What type of vanlifer are you?
       ip_block:
         comment: Comment
         ip: IP

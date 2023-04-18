@@ -1006,8 +1006,8 @@ fr:
       preamble_html: Connectez-vous avec vos identifiants sur <strong>%{domain}</strong>. Si votre compte est hébergé sur un autre serveur, vous ne pourrez pas vous connecter ici.
       title: Se connecter à %{domain}
     sign_up:
-      preamble: Avec un compte sur Geobla, vous serez en mesure de suivre toute autre personne sur le réseau Mastodon, quel que soit l’endroit où son compte est hébergé.
-      title: Mettons les choses en place pour %{domain}.
+      preamble: Cette communauté s'adresse à tous ceux qui voyagent en camping-car, en caravane ou en tente. Avec ton compte, tu peux suivre n'importe quelle autre personne du réseau Mastodon, quel que soit l'endroit où son compte est hébergé.
+      title: Se connecter à Geobla, l'instance Mastodon pour Vanlife & Camping
     status:
       account_status: État du compte
       confirming: En attente de la confirmation par courriel à compléter.

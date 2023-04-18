@@ -1023,8 +1023,8 @@ en:
       preamble_html: Sign in with your <strong>%{domain}</strong> credentials. If your account is hosted on a different server, you will not be able to log in here.
       title: Sign in to %{domain}
     sign_up:
-      preamble: With an account on Geobla, you'll be able to follow any other person on the Mastodon & Fediverse network, regardless of where their account is hosted.
-      title: Let's get you set up on %{domain}.
+      preamble: This community is for anyone who travels by camper, RV or tent. With your account, you can follow anyone else on the Mastodon network, regardless of where their account is hosted.
+      title: Join Geobla, the Mastodon instance for Vanlife & Camping
     status:
       account_status: Account status
       confirming: Waiting for e-mail confirmation to be completed.
