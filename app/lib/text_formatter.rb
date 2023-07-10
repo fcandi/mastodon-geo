@@ -64,7 +64,7 @@ class TextFormatter
       maplink     = url[0,(ENV['GEO_INTERNAL_LINK'].length)] == ENV['GEO_INTERNAL_LINK']
       target      = maplink ? '' : '_blank'
 
-      <<~HTML.squish
+      <<~HTML.squish.html_safe # rubocop:disable Rails/OutputSafety
         <a href="#{h(url)}" target="#{target}" rel="#{rel.join(' ')}"><span class="invisible">#{h(prefix)}</span><span class="#{cutoff ? 'ellipsis' : ''}">#{h(display_url)}</span><span class="invisible">#{h(suffix)}</span></a>
       HTML
     rescue Addressable::URI::InvalidURIError, IDN::Idna::IdnaError
