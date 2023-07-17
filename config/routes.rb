@@ -688,7 +688,7 @@ Rails.application.routes.draw do
       get '/json_all', to: 'places#json_all'
       get '/json_user/:account_id', to: 'places#json_user'
       get 'json_likes/:account_id', to: 'places#json_likes'
-      put '/geobla_move', to: 'geo_users#geobla_move'
+      #put '/geobla_move', to: 'geo_users#geobla_move'
     end
 
     namespace :v2 do
