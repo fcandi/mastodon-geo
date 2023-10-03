@@ -82,7 +82,7 @@ class LinkFooter extends React.PureComponent {
           <Link to='/privacy-policy'><FormattedMessage id='footer.privacy_policy' defaultMessage='Privacy policy' /></Link>
         </p>
         <p>
-          <strong>Geobla v0.1</strong> - <FormattedMessage id='geo.based_on' defaultMessage='basiert auf' /> <a href='https://joinmastodon.org' target='_blank'>Mastodon</a> v{version}
+          <strong>Geobla v0.2</strong> - <FormattedMessage id='geo.based_on' defaultMessage='basiert auf' /> <a href='https://joinmastodon.org' target='_blank'>Mastodon</a> v{version}
           {DividingCircle}
           <Link to='/keyboard-shortcuts'><FormattedMessage id='footer.keyboard_shortcuts' defaultMessage='Keyboard shortcuts' /></Link>
           {DividingCircle}
