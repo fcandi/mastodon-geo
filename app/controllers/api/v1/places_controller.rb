@@ -3,8 +3,8 @@ require 'oj'
 class Api::V1::PlacesController < Api::BaseController
 
   include Authorization
-  before_action :require_user!, except:  [:show, :json_all, :json_user, :json_likes]
-  before_action :set_place, except: [ :json_all, :index, :create, :json_user, :json_likes]
+  before_action :require_user!, except:  [:show, :json_all, :json_user, :json_user2, :json_likes]
+  before_action :set_place, except: [ :json_all, :index, :create, :json_user, :json_user2, :json_likes]
   before_action :create_right, only: [:new]
   before_action :update_right, only: [:new, :update, :destroy]
 
@@ -16,13 +16,18 @@ class Api::V1::PlacesController < Api::BaseController
   end
 
   def json_all
-    @places = Place.all
+    @places = Place.all.limit(10)
     render json: Oj.dump(geo_json,{:mode => :strict }), status: :ok
   end
 
   def json_user
     @places = Place.joins(:place_visits).where(place_visits: { account_id:  params['account_id']})
     render json: Oj.dump(geo_json,{:mode => :strict }), status: :ok
+  end
+
+  def json_user2
+    @places = Place.joins(:place_visits).where(place_visits: { account_id:  params['account_id']})
+    render json: Oj.dump(geo_json2,{:mode => :strict }), status: :ok
   end
 
   def json_likes
@@ -109,6 +114,13 @@ class Api::V1::PlacesController < Api::BaseController
     }
   end
 
+  def geo_json2
+    {
+      type: "FeatureCollection",
+      features: features2
+    }
+  end
+
   def features
     @places.map do |u|
       {
@@ -121,6 +133,24 @@ class Api::V1::PlacesController < Api::BaseController
           id: u.id,
           placename: u.placename,
           placetype: u.placetype
+        }
+      }
+    end
+  end
+
+  def features2
+    @places.map do |u|
+      {
+        type: "Feature",
+        geometry: {
+          type: "Point",
+          coordinates: [ u.lng, u.lat]
+        },
+        properties: {
+          name: u.placename,
+          'osmand:color': u.osmand_color,
+          'osmand:icon': u.osmand_icon,
+          'osmand:background': 'circle'
         }
       }
     end

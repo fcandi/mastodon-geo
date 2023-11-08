@@ -33,6 +33,21 @@ class Place < ApplicationRecord
     'camp' =>  "#campsite"
   }
 
+  Place_icons = {
+    'free' => 'special_campervan',
+    'paid' => 'special_campervan',
+    'wild' =>  'wood',
+    'camp' =>  'tourism_camp_site'
+  }
+
+  Place_colors = {
+    'free' => '#ff2ec6ff',
+    'paid' => '#ffff7200',
+    'wild' =>  '#ff86b953',
+    'camp' =>  '#ffa71de1'
+  }
+
+
   def get_geo_data
     begin
       url = ENV['GEO_GEOCODER'] +
@@ -96,6 +111,14 @@ class Place < ApplicationRecord
 
   def coordinates
     [lng.to_f,lat.to_f]
+  end
+
+  def osmand_color
+    Place_colors[self.placetype]
+  end
+
+  def osmand_icon
+    Place_icons[self.placetype]
   end
 
   def has_second_post?

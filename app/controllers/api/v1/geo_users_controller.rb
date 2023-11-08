@@ -69,4 +69,11 @@ class Api::V1::GeoUsersController < Api::BaseController
     }
   end
 
+  def geo_json2
+    {
+      type: "FeatureCollection",
+      features: features
+    }
+  end
+
 end
