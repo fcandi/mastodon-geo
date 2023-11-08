@@ -16,7 +16,7 @@ class Api::V1::PlacesController < Api::BaseController
   end
 
   def json_all
-    @places = Place.all.limit(10)
+    @places = Place.all
     render json: Oj.dump(geo_json,{:mode => :strict }), status: :ok
   end
 
