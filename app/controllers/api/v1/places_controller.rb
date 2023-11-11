@@ -26,7 +26,11 @@ class Api::V1::PlacesController < Api::BaseController
   end
 
   def json_user2
-    @places = Place.joins(:place_visits).where(place_visits: { account_id:  params['account_id']})
+    unless params['filter'] == 'all'
+      @places = Place.joins(:place_visits).where(placetype: params['filter']).where(place_visits: { account_id:  params['account_id']})
+    else
+      @places = Place.joins(:place_visits).where(place_visits: { account_id:  params['account_id']})
+    end
     render json: Oj.dump(geo_json2,{:mode => :strict }), status: :ok
   end
 

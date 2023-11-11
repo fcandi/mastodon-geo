@@ -687,7 +687,7 @@ Rails.application.routes.draw do
       end
       get '/json_all', to: 'places#json_all'
       get '/json_user/:account_id', to: 'places#json_user'
-      get '/json_user2/:account_id', to: 'places#json_user2'
+      get '/json_user2/:account_id/:filter', to: 'places#json_user2'
       get 'json_likes/:account_id', to: 'places#json_likes'
       #put '/geobla_move', to: 'geo_users#geobla_move'
     end
